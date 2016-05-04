@@ -11,6 +11,8 @@
         background-color: $white;
     }
 
+
+
     .jumbotron h1 {
     margin-top: 35px;
     font-size: 24px;
@@ -30,11 +32,12 @@
     .jumbotron {
         padding: 30px 15px;
         margin-bottom: 0px;
-        right:0;left:0;top:0;bottom:0;
-        overflow:hidden;
-        background-attachment:fixed;
+        right: 0; left: 0;
+        top: 0; bottom: 0;
+        overflow: hidden;
+        background-attachment: fixed;
         height: auto;
-        background-color: $white;
+        background-color: white;
     }
 
     .jumbotron h1 {
