@@ -7,34 +7,61 @@
         <div class="container text-center firstfold">
             {% if categories_projects['featured'] | count > 0 %}
             {% set featured_project = categories_projects['featured'] | random %}
-            <h1>{{ featured_project.name }}</h1>
-            <p>{{ featured_project.description }}</p>
-            <a class="btn btn-primary" href="{{ url_for('project.details', short_name=featured_project.short_name)}}">{{_('Contribute')}}</a>
+            <div class="col-xs-12 col-sm-6 col-sm-push-6">
+                <img class="sr-alergeno-home" src="static/img/trigo-si-o-no.svg">
+            </div>
+            <div class="col-xs-12 col-sm-6 col-sm-pull-6">
+                <h1>Un proyecto sin gluten</h1>
+                <p>Señor alérgeno es una plataforma para clasificar productos que contienen alérgenos en sus ingredientes. Y toda la información que se recopila se comparte abierta, libre y gratuitamente.<br>
+                <a class="btn btn-primary" href="{{ url_for('project.details', short_name=featured_project.short_name)}}">Empieza a clasificar</a>
+                </p>
+            </div>
             {% else %}
-            <h1>{{_('Welcome to ')}} {{brand}}</h1>
-            <p>{{_("The ultimate crowdsourcing framework to analyze or enrich data that can't be processed by machines alone.")}}</p>
+
             {% endif %}
         </div>
     </div>
 </section>
-<section class="home projects">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-offset-1 col-md-10">
-               {% for f in categories_projects['featured'] %}
-               <div class="col-sm-offset-2 col-sm-8 col-md-offset-0 col-md-4">
-                   <div class="thumbnail card">
-                       <div class="post-pic" style="background: rgb(0, 151, 167) url({{helper.render_url_thumbnail(f, upload_method)}}) no-repeat center top; background-size: cover;"></div>
-                       <div class="caption">
-                           <h3>{{f.name}}</h3>
-                           <p>{{f.description}}</p>
-                           <p class="readmore"><a href="{{ url_for('project.details', short_name=f.short_name)}}">{{_('Contribute')}}</a></p>
-                       </div>
-                   </div>
-               </div>
-               {% endfor %}
-           </div>
+<section class="numbers">
+    <div class="container text-center">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+            <img src="static/img/numbers.svg">
+            <h2>En este momento tenemos ya 1537 productos clasificados</h2>
+            <p>¿Quieres la lista?  Pues descárgatela <a href="#">aquí</a></p>
         </div>
     </div>
+
+</section>
+
+<section class="companies">
+    <div class="container">
+
+        <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 col-lg-offset-4 col-lg-4 alergeno-description">
+            <h2>Sr. <span>Alérgeno</span></h2>
+            <p>Señor Alérgeno es el granito de arena que Scifabric y Soy Súper quieren aportar para facilitar la vida a todos aquellos que sufren algún tipo de intolerancia alimentaria. <a href="#">más info</a></p>
+        </div>
+
+        <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-1 col-md-5 col-lg-offset-2 col-lg-4">
+            <div class="thumbnail card">
+                <div class="post-pic soysuper-card">
+                    <img src="/static/img/soysuper-logo.png">
+                </div>
+                <div class="caption">
+                    <p>Soysuper permite realizar la compra del súper de forma rápida y sencilla, controlando los gastos de la compra y ahorrando así, tiempo y dinero.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-0 col-md-5 col-lg-4">
+            <div class="thumbnail card">
+                <div class="post-pic scifabric-card">
+                    <img src="/static/img/scifabric-logo.svg">
+                </div>
+                <div class="caption">
+                    <p>Scifabric es una empresa especializada en Crowdsourcing y con un ojo siempre puesto en la ciencia ciudadana. La ciencia está mejor fuera de los laboratorios.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </section>
 {% endblock %}
