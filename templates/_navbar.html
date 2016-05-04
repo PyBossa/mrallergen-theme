@@ -1,5 +1,6 @@
 <div class="navbar navbar-default navbar-fixed-top">
     <div class="container">
+        {% if active_page != 'presenter' %}
         <div class="navbar-header">
             <a class="navbar-brand" href="{{ url_for('home.home') }}">Sr.<span> Alérgeno</span></a>
             <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
@@ -35,5 +36,12 @@
             {% endif %}
             </ul>
         </div>
+        {% else %}
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{{url_for('project.details', short_name=project.short_name)}}"><i class="fa fa-chevron-left"></i></a>
+            <div id="question" class="navbar-nav">
+            </div>
+        </div>
+                {% endif %}
     </div>
 </div>
