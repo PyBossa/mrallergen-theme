@@ -1,16 +1,94 @@
-.navbar-toggle {
-    color: $white;
-    border: 0px;
-    background: none;
-    background-color: transparent;
-    border-color: none;
-    padding-top: 5px;
-    padding-bottom: 0px;
-    font-size: 16px;
-    font-weight: 600;
-    text-transform: uppercase;
+.navbar-default {
+  background-color: rgba(255,255,255, .85);
+  border-bottom: 1px solid #D6DCDE;
+
+}
+.navbar-default .navbar-brand {
+  color: #2E4B63;
+  font-weight: 500;
+  font-size: 30px;
+  font-family: "mr_dafoeregular";
+}
+.navbar-default .navbar-brand span{
+  color: #2E4B63;
+  font-weight: 600;
+  font-family: "source sans pro";
 }
 
-.navbar-toggle:focus {
-    background-color: transparent !important;
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #2E4B63;
+  background-color: transparent;
+}
+.navbar-default .navbar-text {
+  color: #2E4B63;
+  text-transform: uppercase;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #2E4B63;
+  text-transform: uppercase;
+  font-weight: 600
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #2E4B63;
+  background-color: transparent;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: $gray-dark;
+  background-color: transparent;
+  border-bottom: 2px solid #3ab0d5;
+}
+.navbar-default .navbar-nav > .disabled > a,
+.navbar-default .navbar-nav > .disabled > a:hover,
+.navbar-default .navbar-nav > .disabled > a:focus {
+  color: #cccccc;
+  background-color: transparent;
+}
+.navbar-default .navbar-toggle {
+  border-color: #1a242f;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #1a242f;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #1a242f;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: transparent;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  background-color: transparent;
+  color: $gray-dark;
+  padding-bottom: 10px;
+}
+
+.navbar-brand {
+    padding: 13.5px 15px;
+}
+
+
+
+
+@media (min-width: 768px) {
+
+  .navbar {
+  min-height: 70px;
+  }
+
+  .navbar-brand {
+    padding: 17.5px 15px;
+  }
+
+  .navbar-nav > li > a {
+    padding-top: 25.5px;
+    padding-bottom: 4px;
+  }
+
 }
