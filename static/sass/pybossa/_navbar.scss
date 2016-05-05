@@ -96,23 +96,30 @@
 }
 
 
+@media (min-width:768px) {
+    .navbar-mrallergen {
+        width: 100%;
+        text-align: center;
+    }
+    .navbar-nav-mrallergen {
+        float: none;
+    }
 
-@media (min-width: 768px) {
+    #question {
+        display: block;
+        margin-top: 11px;
+    }
+
+}
+
+@media (min-width: 1024px) {
 
   .navbar {
   min-height: 70px;
   }
 
-  .navbar-header {
-      width: 100%;
-  }
-
   .navbar-brand {
     padding: 17px 15px;
-  }
-
-  .navbar-nav {
-      float: none;
   }
 
   .navbar-nav > li > a {
@@ -123,10 +130,6 @@
   #question {
       display: block;
       margin-top: 11px;
-  }
-
-  .navbar-header {
-      text-align: center;
   }
 
 }
