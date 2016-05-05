@@ -13,7 +13,7 @@
             <div class="col-xs-12 col-sm-6 col-sm-pull-6">
                 <h1>Un proyecto sin gluten</h1>
                 <p>Señor alérgeno es una plataforma para clasificar productos que contienen alérgenos en sus ingredientes. Y toda la información que se recopila se comparte abierta, libre y gratuitamente.<br>
-                <a class="btn btn-primary" href="{{ url_for('project.details', short_name='soytestproject1')}}">Empieza a clasificar</a>
+                <a class="btn btn-primary" href="{{ url_for('project.presenter', short_name=featured_project.short_name)}}">Empieza a clasificar</a>
                 </p>
             </div>
             {% else %}
