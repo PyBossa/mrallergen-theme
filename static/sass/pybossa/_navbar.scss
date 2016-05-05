@@ -3,16 +3,23 @@
   border-bottom: 1px solid #D6DCDE;
 
 }
-.navbar-default .navbar-brand {
+.navbar-default .navbar-brand,
+.mrallergen {
   color: #2E4B63;
   font-weight: 500;
   font-size: 30px;
   font-family: "mr_dafoeregular";
 }
-.navbar-default .navbar-brand span{
+.navbar-default .navbar-brand span,
+.mrallergen span {
   color: #2E4B63;
   font-weight: 600;
   font-family: "source sans pro";
+}
+
+.mrallergen,
+.mrallergen span {
+    color: white;
 }
 
 .navbar-default .navbar-brand:hover,
@@ -74,27 +81,6 @@
     padding: 13.5px 15px;
 }
 
-
-
-
-@media (min-width: 768px) {
-
-  .navbar {
-  min-height: 70px;
-  }
-
-  .navbar-brand {
-    padding: 17px 15px;
-  }
-
-  .navbar-nav > li > a {
-    padding-top: 25.5px;
-    padding-bottom: 4px;
-  }
-
-}
-
-
 .funnel-navbar{
   background-color: $brand-info;
   color: #fff;
@@ -107,4 +93,40 @@
 
 #question{
     margin-top: 19px;
+}
+
+
+
+@media (min-width: 768px) {
+
+  .navbar {
+  min-height: 70px;
+  }
+
+  .navbar-header {
+      width: 100%;
+  }
+
+  .navbar-brand {
+    padding: 17px 15px;
+  }
+
+  .navbar-nav {
+      float: none;
+  }
+
+  .navbar-nav > li > a {
+    padding-top: 25.5px;
+    padding-bottom: 4px;
+  }
+
+  #question {
+      display: block;
+      margin-top: 11px;
+  }
+
+  .navbar-header {
+      text-align: center;
+  }
+
 }
