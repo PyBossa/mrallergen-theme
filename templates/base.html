@@ -52,7 +52,7 @@
     {% include '_gcs.html' ignore missing %}
   </head>
 
-  <body>
+  <body {% if body_class %}class="{{body_class}}"{%endif%}>
     {% set active_page = active_page | default('index') -%}
     {% set active_project  = active_project | default('none') -%}
     {% include "_navbar.html" %}

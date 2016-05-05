@@ -1,18 +1,18 @@
 {% extends "/base.html" %}
 {% set active_page = "projects"  %}
 {% set active_project = project.short_name %}
+{% set body_class = "tutorial" %}
 
 {% block content %}
 
-<div class="container tutorial">
+<div class="container">
     {{ project.info.tutorial | safe}}
 
     <div class="row">
-        <div class="col-md-12" style="text-align:center;padding-top:20px;">
+        <div class="col-md-12" style="text-align:center;">
             <a id="start" href={{url_for('project.presenter', short_name = project.short_name)}}
-                class="btn btn-primary btn-lg"> 
-                <i class="icon-thumbs-up"></i> 
-                {{_('Start contributing')}}!</a>
+                class="btn btn-tutorial"> 
+                {{_('Entendido')}}!</a>
         </div>
     </div>
 
