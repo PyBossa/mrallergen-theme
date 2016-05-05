@@ -37,9 +37,10 @@
             </ul>
         </div>
         {% else %}
-        <div class="navbar-header">
-            <a class="navbar-brand" href="{{url_for('project.details', short_name=project.short_name)}}"><i class="fa fa-chevron-left"></i></a>
+        <div class="navbar-header funnel-navbar">
+            <a class="navbar-brand" href="{{url_for('project.details', short_name=project.short_name)}}"><i class="fa fa-chevron-left fa-funnel"></i></a>
             <div id="question" class="navbar-nav">
+                <h4> Hola que ase?</h4>
             </div>
         </div>
                 {% endif %}
