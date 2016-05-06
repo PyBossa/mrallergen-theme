@@ -90,6 +90,16 @@
   font-size: 18px !important;
   color: white;
 }
+.navbar-default .navbar-nav .open .dropdown-menu>li>a {
+    color: $brand-primary;
+}
+
+@media(max-width:767px) {
+.navbar-default .navbar-nav .open .dropdown-menu>li>a {
+    color: $brand-primary;
+}
+
+}
 
 #question{
     margin-top: 19px;
