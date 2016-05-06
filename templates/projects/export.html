@@ -17,7 +17,7 @@
 
         {{ render_project_card_option(project, upload_method, title=_('Respuestas'), explanation=_('Exporta las  respuestas en CSV'), link=url_for('project.export_to', short_name=project.short_name, type='task_run', format='csv'), link_action_text=_('Exportar'), download=True, nofollow=True)}}
         {% else %}
-        {{ render_project_card_option(project, upload_method, title=_('Resputas'), explanation=_('Exporta las respuestas en CSV'), link="#", link_action_text=_('Exportar'), download=True, nofollow=True, link_class="disabled")}}
+        {{ render_project_card_option(project, upload_method, title=_('Respuestas'), explanation=_('Exporta las respuestas en CSV'), link="#", link_action_text=_('Exportar'), download=True, nofollow=True, link_class="disabled")}}
         {% endif %}
     </div>
     <div id="json" class="col-md-6">
