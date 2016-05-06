@@ -1,7 +1,8 @@
+{% set text = "Ooops! You are an anonymous user and will not            get any credit for your contributions. Sign in            now!" %}
 {% with messages = get_flashed_messages(with_categories=True) %}
 {% if messages %}
   {% for category, message in messages %}
-    {% if "an anonymous user and will not get any credit" not in message %}
+    {% if text != message %}
     <script>
         pybossaNotify("{{message|safe}}", true, "{{category}}");
     </script>
