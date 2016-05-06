@@ -12,7 +12,7 @@ function pybossaNotify(msg, showNotification, type){
         type = 'info';
     }
     if ((type === 'danger') || (type === 'error') || (type === 'warning') || (type == 'message')) {
-        icon.addClass("fa fa-2x fa-exclamation-triangle pull-left"); 
+        icon.addClass("fa fa-2x fa-exclamation-triangle pull-left hidden-xs"); 
     }
 
     if (type === 'message') {
@@ -20,15 +20,15 @@ function pybossaNotify(msg, showNotification, type){
     }
 
     if (type === 'info') {
-        icon.addClass("fa fa-2x fa-bullhorn pull-left"); 
+        icon.addClass("fa fa-2x fa-bullhorn pull-left hidden-xs"); 
     }
 
     if (type === 'success') {
-        icon.addClass("fa fa-2x fa-check pull-left"); 
+        icon.addClass("fa fa-2x fa-check pull-left hidden-xs"); 
     }
 
     if (type === 'loading') {
-        icon.addClass("fa fa-2x fa-circle-o-notch fa-spin pull-left"); 
+        icon.addClass("fa fa-2x fa-circle-o-notch fa-spin pull-left hidden-xs"); 
         type = 'info';
     }
 
