@@ -34,9 +34,15 @@
     <div id="task_browse" class="col-md-6 well">
         {{ render_project_card_option(project, upload_method, title=_('Browse'), explanation=_('Check the status of the tasks'), link=url_for('project.tasks_browse', short_name=project.short_name), link_action_text=_('Browse'))}}
     </div>
+    {% if 'lock_data' not in plugins.keys() %}
     <div id="export_tasks" class="col-md-6 well">
         {{ render_project_card_option(project, upload_method, title=_('Export Tasks'), explanation=_('Export tasks to JSON, CSV or a CKAN server'), link=url_for('project.export_to', short_name=project.short_name), link_action_text=_('Export'))}}
     </div>
+    {% else %}
+    <div id="export_tasks" class="col-md-6 well">
+        {{ render_project_card_option(project, upload_method, title=_('Export Task Runs'), explanation=_('Export task runs to JSON or CSV'), link=url_for('project.export_to', short_name=project.short_name), link_action_text=_('Export'))}}
+    </div>
+    {% endif %}
 </div>
 {% endif %}
 {% endblock %}
