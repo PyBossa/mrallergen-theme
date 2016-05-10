@@ -101,7 +101,7 @@
 {% endmacro %}
 
 {% macro render_pagination(pagination) %}
-<ul class="pagination pagination-sm">
+<ul class="pagination">
   {% if pagination.has_prev %}
   <li><a href="{{ url_for_other_page(pagination.page - 1)}}" rel="nofollow">&laquo; {{_('Prev')}}</a></li>
   {% else %}

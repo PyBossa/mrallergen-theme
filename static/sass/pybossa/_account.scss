@@ -33,3 +33,27 @@ section.account.update.apikey {
 .avatars-gallery img{
 	margin-bottom: 10px;
 }
+
+.pagination > li > a {
+    color: #fff;
+    background-color: $brand-secondary;
+
+}
+
+.pagination > .active > a{
+    color: #fff;
+    background-color: $brand-primary;
+
+}
+
+.pagination > .disabled > a{
+    display: none;
+
+}
+
+.pagination > li > a:hover,
+.pagination > li > a:focus,
+.pagination > li > span:hover,
+.pagination > li > span:focus {
+    background-color: #0E1B25;
+}
