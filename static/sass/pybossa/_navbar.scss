@@ -107,6 +107,12 @@
 
 
 @media (min-width:768px) {
+
+    .navbar {
+  min-height: 70px;
+  }
+
+
     .navbar-mrallergen {
         width: 100%;
         text-align: center;
@@ -124,9 +130,6 @@
 
 @media (min-width: 1024px) {
 
-  .navbar {
-  min-height: 70px;
-  }
 
   .navbar-brand {
     padding: 17px 15px;
