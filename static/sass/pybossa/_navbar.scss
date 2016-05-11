@@ -22,6 +22,12 @@
     color: white;
 }
 
+.mrallergen:hover ,
+.mrallergen span:hover {
+    color: white;
+    text-decoration: none;
+}
+
   .navbar-brand {
     padding: 17px 15px;
   }
@@ -81,8 +87,6 @@
   color: $gray-dark;
   padding-bottom: 10px;
 }
-
-
 
 .funnel-navbar{
   background-color: $brand-info;
