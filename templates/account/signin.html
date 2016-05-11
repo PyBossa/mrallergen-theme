@@ -5,13 +5,13 @@
     <div class="container">
         <div class="row">
             <div class="col-md-offset-4 col-md-4" style="margin-top:10px;">
-                <h1>{{_('Sign in')}}</h1>
+                <h1>Iniciar sesión</h1>
                 {% from "_formhelpers.html" import render_field, render_form %}
-                {{ render_form(form, form_id="signin", action_text=_('Sign in'), btn_class="btn btn-primary btn-block")}}
+                {{ render_form(form, form_id="signin", action_text=_('Iniciar sesión'), btn_class="btn btn-primary btn-block")}}
                 <p class="text-sm text-center" style="margin-top: 5px;">
                 <a href="{{ url_for('account.forgot_password') }}">{{ _('Forgot Password') }}</a>
                 </p>
-                <p class="text-center">{{_('Not registered?')}} <a href="{{ url_for('account.register') }}">{{_('Sign up for free now')}}</a> <br/>{{_('or sign in/sign up through')}}</p>
+                <p class="text-center">{{_('¿No tienes cuenta?')}} <a href="{{ url_for('account.register') }}">{{_('Crear una cuenta gratis')}}</a> <br/>{{_('o inicia sesión con')}}</p>
 
                 {% if next is not none%}
                 {% if auth.twitter %}
@@ -35,10 +35,9 @@
                 {% endif %}
                 {% endif %}
                 <p>
-                <span class="label label-warning"><i class="fa fa-bullhorn"></i> {{ _('Note') }}</span>
-                {{ _('By click the') }} <strong>{{ _('Sign in button') }}</strong> {{ _('below you are agreeing to
-                the') }} <a href={{url_for('help.tos')}}>{{ _('terms of use') }}</a> {{ _('and') }}
-                <a href={{data_use | safe}}>{{ _('data') }}</a>.
+                <span class="label label-warning"><i class="fa fa-bullhorn"></i> {{ _('Aviso') }}</span>
+                {{ _('Haciendo click') }} <strong>{{ _('en el botón de iniciar sesión') }}</strong> {{ _('aceptas nuestros') }} <a href={{url_for('help.tos')}}>{{ _('términos de uso') }}</a> {{ _('y') }}
+                <a href={{data_use | safe}}>{{ _('datos') }}</a>.
 
                 </p>
         </div>
