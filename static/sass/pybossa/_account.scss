@@ -13,3 +13,57 @@ section.account.update.apikey {
     padding-top: 15px;
 }
 
+
+.row-title{
+	margin-top: 30px;
+	margin-bottom: 60px;
+}
+
+.row-title h2{
+	margin-top: 15px;
+	margin-bottom: 30px;
+}
+
+.avatars-gallery{
+    padding-bottom: 30px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.avatars-gallery img{
+	margin-bottom: 10px;
+}
+
+.pagination > li > a {
+    color: #fff;
+    background-color: $brand-secondary;
+    padding: 10px 13px;
+
+}
+
+.pagination > .active > a{
+    color: #fff;
+    background-color: $brand-primary;
+
+}
+
+.pagination > .disabled > a{
+    display: none;
+
+}
+
+.pagination > li > a:hover,
+.pagination > li > a:focus,
+.pagination > li > span:hover,
+.pagination > li > span:focus {
+    background-color: #0E1B25;
+}
+
+.pagination > .active > a, 
+.pagination > .active > a:hover, 
+.pagination > .active > a:focus, 
+.pagination > .active > span, 
+.pagination > .active > span:hover, 
+.pagination > .active > span:focus {
+    background-color: #0E1B25;
+}

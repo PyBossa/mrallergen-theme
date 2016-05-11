@@ -12,8 +12,8 @@
             </div>
             <div class="col-xs-12 col-sm-6 col-sm-pull-6">
                 <h1>Un proyecto sin gluten</h1>
-                <p>Señor Alérgeno es la plataforma que hacía falta para clasificar productos que contienen alérgenos en sus ingredientes. Y toda la información que se recopila se comparte abierta, libre y gratuitamente. ¿Nos ayudas?</p>
-                <a class="btn btn-primary" href="{{ url_for('project.presenter', short_name=featured_project.short_name)}}">Claro que sí</a>
+                <p>Señor alérgeno es una plataforma para clasificar productos que contienen alérgenos en sus ingredientes. Y toda la información que se recopila se comparte abierta, libre y gratuitamente.<br>
+                <a class="btn btn-primary" href="{{ url_for('project.presenter', short_name=featured_project.short_name)}}">Empieza a clasificar</a>
                 </p>
             </div>
             {% else %}
@@ -51,14 +51,14 @@
 
         <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-1 col-md-5 col-lg-offset-2 col-lg-4">
             <div class="thumbnail card">
-                <a href="http://soysuper.com">
+                <a href="https://soysuper.com">
                 <div class="post-pic soysuper-card">
                     <img src="{{url_for('static', filename='img/soysuper-logo.png')}}">
                 </div>
                 </a>
                 <div class="caption">
                     <p>Soysuper es el agregador de supermercados que te permite comparar precios, ofertas y plazos de entrega de supermercados, para que hagas la compra de forma rápida y sencilla, y ahorrando tiempo y dinero.</p>
-                    <p><a href="http://soysuper.com">http://soysuper.com</a></p>
+                    <p><a href="https://soysuper.com">https://soysuper.com</a></p>
                 </div>
             </div>
         </div>
