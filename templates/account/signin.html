@@ -9,7 +9,7 @@
                 {% from "_formhelpers.html" import render_field, render_form %}
                 {{ render_form(form, form_id="signin", action_text=_('Iniciar sesión'), btn_class="btn btn-primary btn-block")}}
                 <p class="text-sm text-center" style="margin-top: 5px;">
-                <a href="{{ url_for('account.forgot_password') }}">{{ _('Forgot Password') }}</a>
+                <a href="{{ url_for('account.forgot_password') }}">{{ _('¿Has olvidado tu contraseña?') }}</a>
                 </p>
                 <p class="text-center">{{_('¿No tienes cuenta?')}} <a href="{{ url_for('account.register') }}">{{_('Crear una cuenta gratis')}}</a> <br/>{{_('o inicia sesión con')}}</p>
 
