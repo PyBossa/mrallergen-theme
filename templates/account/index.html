@@ -12,8 +12,8 @@
                 {% if enforce_privacy and (current_user.is_anonymous() or (current_user.is_authenticated and not current_user.admin)) %}
                 {{ privacy.render_lock_page() }}
                 {% else %}
-                <h2>{{ _('Community') }} 
-                <small>{{total}} {{ _('registered users') }}</small>
+                <h2>{{ _('Comunidad') }} 
+                <small>{{total}} {{ _('usuarios registrados') }}</small>
                 </h2>
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-3">
