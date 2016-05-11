@@ -22,7 +22,9 @@
                 <li {% if active_page == 'profile' %} class="active" {% endif %}><a href="#" data-toggle="dropdown" class="dropdown-toggle"> {{ current_user.name | truncate(16,true) }} <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a href="{{ url_for('account.profile', name=current_user.name) }}"> {{ _('Mi perfil') }}</a></li>
+                    {% if current_user.is_authenticated() and current_user.admin %}
                     <li><a href="{{ url_for('account.projects', name=current_user.name) }}"> {{ _('Mis proyectos') }}</a></li>
+                    {% endif %}
                     <li><a href="{{ url_for('account.update_profile', name=current_user.name) }}"> {{ _('Mis ajustes') }}</a></li>
                     {% if current_user.admin == 1 %}
                     <li class="divider"></li>
@@ -33,7 +35,7 @@
                 </ul>
                 </li>
             {% else %}
-                <li><a href="{{ url_for('account.signin') }}"> {{ _('Login') }}</a></li>
+                <li><a href="{{ url_for('account.signin') }}"> {{ _('Iniciar sesión') }}</a></li>
 
             {% endif %}
             </ul>
