@@ -39,43 +39,18 @@
                 </div>
             </div>
         </div>
-        <div class="row products">
-            <div class="col-xs-3">
-                <div class="product">
-                    <p class="brand">Eagle</p>
-                    <p class="name">Cacahuetes</p>
-                    <p class="gluten-free"><img src="http://placehold.it/16x16">Sin gluten</p>
-                    <img class="center-block img" src="http://placehold.it/100x100">
-                </div>
-            </div>
-            <div class="col-xs-3">
-                <div class="product">
-                    <p class="brand">Eagle</p>
-                    <p class="name">Cacahuetes</p>
-                    <p class="gluten-free"><img src="http://placehold.it/16x16">Sin gluten</p>
-                    <img class="center-block img" src="http://placehold.it/100x100">
-                </div>
-            </div>
-            <div class="col-xs-3">
-                <div class="product">
-                    <p class="brand">Eagle</p>
-                    <p class="name">Cacahuetes</p>
-                    <p class="gluten-free"><img src="http://placehold.it/16x16">Sin gluten</p>
-                    <img class="center-block img" src="http://placehold.it/100x100">
-                </div>
-            </div>
-            <div class="col-xs-3">
-                <div class="product">
-                    <p class="brand">Eagle</p>
-                    <p class="name">Cacahuetes</p>
-                    <p class="gluten-free"><img src="http://placehold.it/16x16">Sin gluten</p>
-                    <img class="center-block img" src="http://placehold.it/100x100">
-                </div>
-            </div>
-
-        </div>
+        <div class="row products"></div>
     </div>
 </div>
+</section>
+<section class="selected-product">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="#" id="back"><i class="fa fa-chevron-left"></i> Atrás</a>
+            </div>
+        </div>
+    </div>
 </section>
 {% endblock %}
 
@@ -172,13 +147,66 @@ url: "/api/result?project_id=3292&info=name::" + query + "&fulltextsearch=1",
             product.append(labels);
 
             var productImg = $("<img/>");
-            productImg.attr("src", "http://placehold.it/100x100");
+            productImg.attr("src", "http://placehold.it/400x400");
             productImg.addClass("center-block img");
 
             name.text(data[i]['info']['name']);
             product.append(productImg);
             col.append(product);
             $(".row.products").append(col);
+
+
+            // SELECTED PRODUCT CREATION
+            var row = $("<div/>");
+            row.addClass(row);
+            var colImg = $("<div/>");
+            colImg.addClass("col-xs-6");
+            var colData = $("<div/>");
+            colData.addClass("col-xs-6");
+
+            var square = $("<div/>");
+            square.addClass("square");
+            var productImgBig = $("<img/>");
+            productImgBig.attr("src", "http://placehold.it/400x400");
+            productImgBig.addClass("center-block img");
+           
+            square.append(productImgBig);
+            colImg.append(square);
+
+            var aBrand = $("<a/>");
+            aBrand.text("");
+            colData.append(aBrand);
+
+            var nameBig = $("</p>");
+            nameBig.addClass("name");
+            nameBig.text(data[i]['info']['name']);
+
+            colData.append(nameBig);
+
+            var classification = $("<div/>");
+            classification.addClass("classification");
+            classification.append(labels);
+            var explanation = $("<p/>");
+            if (data[i]['info']['labelGlutenFree'] === 'yes') {
+                var n_people = data[i]['info']['labelGlutenFreeSummary']['count'];
+            }
+            if (data[i]['info']['ingredientsWheat'] === 'yes') {
+                var n_people = data[i]['info']['ingredientsWheatSummary']['count'];
+            }
+            explanation.text(n_people + " personas han revisado este producto y lo han clasificado así");
+            classification.append(explanation);
+
+            colData.append(classification);
+
+            var link = $("<a/>");
+            link.addClass("btn btn-primary");
+            link.attr("href", data[i]['info']['url']);
+            link.text("Ver en Soysuper");
+
+            colData.append(link);
+            row.append(colImg);
+            row.append(colData);
+            $(".selected-product > .container").append(row);
             }
 
             }
