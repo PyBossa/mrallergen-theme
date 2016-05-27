@@ -94,6 +94,7 @@ $input-height: 60px;
     margin-bottom: 15px;
 
     .product {
+        cursor: pointer;
         border: 1px solid #D6DCDE;
         padding-left: 15px;
         padding-right: 15px;
@@ -115,6 +116,9 @@ $input-height: 60px;
             padding-top: 5px;
 
         }
+    }
+    .product:hover {
+        border: 1px solid #6B6E6F;
     }
 }
 
