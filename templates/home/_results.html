@@ -44,13 +44,13 @@
 </div>
 </section>
 <section class="selected-product">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <a href="#" id="back"><i class="fa fa-chevron-left"></i> Atrás</a>
-            </div>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <a href="#" id="back"><i class="fa fa-chevron-left"></i> Atrás</a>
         </div>
     </div>
+</div>
 </section>
 {% endblock %}
 
@@ -88,11 +88,11 @@ $("#dropdown-all").off('click').on('click', function(){
         }); 
 
 $("#back").off('click').on('click', function(){
-         $(".row.products").show();
-         $(".found").show();
-         $(".selected-product").hide();
-         var id = $("#back").data("close");
-         $("#" + id + "-big").hide();
+        $(".row.products").show();
+        $(".found").show();
+        $(".selected-product").hide();
+        var id = $("#back").data("close");
+        $("#" + id + "-big").hide();
         });
 
 
@@ -132,12 +132,12 @@ url: "/api/result?project_id=3292&info=name::" + query + "&fulltextsearch=1",
             name.addClass("name");
             var labels = $("</p>");
             if (data[i]['info']['labelGlutenFree'] === 'yes') {
-            var iconGlutenFree = $("<img>");
-            iconGlutenFree.attr("src", "http://placehold.it/16x16");
-            labels.text(" Sin gluten");
-            labels.prepend(iconGlutenFree);
-            labels.addClass("gluten-free");
-            col.addClass("gluten-free");
+                var iconGlutenFree = $("<img>");
+                iconGlutenFree.attr("src", "http://placehold.it/16x16");
+                labels.text(" Sin gluten");
+                labels.prepend(iconGlutenFree);
+                labels.addClass("gluten-free");
+                col.addClass("gluten-free");
             }
 
             if (data[i]['info']['ingredientsWheat'] === 'yes') {
@@ -178,7 +178,7 @@ url: "/api/result?project_id=3292&info=name::" + query + "&fulltextsearch=1",
             var productImgBig = $("<img/>");
             productImgBig.attr("src", "http://placehold.it/400x400");
             productImgBig.addClass("center-block img");
-           
+
             square.append(productImgBig);
             colImg.append(square);
 
@@ -196,13 +196,13 @@ url: "/api/result?project_id=3292&info=name::" + query + "&fulltextsearch=1",
             classification.addClass("classification");
             var labelsBig = $("</p>");
             if (data[i]['info']['labelGlutenFree'] === 'yes') {
-            var iconGlutenFree = $("<img>");
-            iconGlutenFree.attr("src", "http://placehold.it/16x16");
-            labelsBig.text(" Sin gluten");
-            labelsBig.prepend(iconGlutenFree);
-            labelsBig.addClass("gluten-free");
-            classification.addClass("gluten-free");
-            col.addClass("gluten-free");
+                var iconGlutenFree = $("<img>");
+                iconGlutenFree.attr("src", "http://placehold.it/16x16");
+                labelsBig.text(" Sin gluten");
+                labelsBig.prepend(iconGlutenFree);
+                labelsBig.addClass("gluten-free");
+                classification.addClass("gluten-free");
+                col.addClass("gluten-free");
             }
 
             if (data[i]['info']['ingredientsWheat'] === 'yes') {
