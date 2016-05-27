@@ -46,11 +46,24 @@ $input-height: 60px;
     }
 
     .btn-options {
+        min-width: 222px;
         margin: 0px;
         background-color: transparent;
         border-radius: 0px;
         border: 1px solid #D6DCDE;
         text-transform: uppercase;
+    }
+
+    .dropdown-menu {
+        min-width: 222px;
+        margin-top: -1px;
+        border-radius: 0;
+    }
+
+    .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
+        text-decoration: none;
+        color: $brand-primary;
+        background-color: #EEEEEE;
     }
 
     .btn-options:hover,
