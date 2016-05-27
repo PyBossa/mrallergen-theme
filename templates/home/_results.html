@@ -28,65 +28,65 @@
             <div class="col-xs-6">
                 <!-- Single button -->
                 <div class="btn-group pull-right">
-                  <button id="default-option" type="button" class="btn btn-options dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Todos los productos <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li><a id="dropdown-gluten-free" href="#">Sin gluten</a></li>
-                    <li><a id="dropdown-wheat" href="#">Trigo o trazas</a></li>
-                    <li><a id="dropdown-all" href="#">Todos los productos</a></li>
-                  </ul>
+                    <button id="default-option" type="button" class="btn btn-options dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Todos los productos <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a id="dropdown-gluten-free" href="#">Sin gluten</a></li>
+                        <li><a id="dropdown-wheat" href="#">Trigo o trazas</a></li>
+                        <li><a id="dropdown-all" href="#">Todos los productos</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
         <div class="row products">
-                <div class="col-xs-3">
-                    <div class="product">
-                        <p class="brand">Eagle</p>
-                        <p class="name">Cacahuetes</p>
-                        <p class="gluten-free"><img src="http://placehold.it/16x16">Sin gluten</p>
-                        <img class="center-block img" src="http://placehold.it/100x100">
-                    </div>
+            <div class="col-xs-3">
+                <div class="product">
+                    <p class="brand">Eagle</p>
+                    <p class="name">Cacahuetes</p>
+                    <p class="gluten-free"><img src="http://placehold.it/16x16">Sin gluten</p>
+                    <img class="center-block img" src="http://placehold.it/100x100">
                 </div>
-                <div class="col-xs-3">
-                    <div class="product">
-                        <p class="brand">Eagle</p>
-                        <p class="name">Cacahuetes</p>
-                        <p class="gluten-free"><img src="http://placehold.it/16x16">Sin gluten</p>
-                        <img class="center-block img" src="http://placehold.it/100x100">
-                    </div>
-                </div>
-                <div class="col-xs-3">
-                    <div class="product">
-                        <p class="brand">Eagle</p>
-                        <p class="name">Cacahuetes</p>
-                        <p class="gluten-free"><img src="http://placehold.it/16x16">Sin gluten</p>
-                        <img class="center-block img" src="http://placehold.it/100x100">
-                    </div>
-                </div>
-                <div class="col-xs-3">
-                    <div class="product">
-                        <p class="brand">Eagle</p>
-                        <p class="name">Cacahuetes</p>
-                        <p class="gluten-free"><img src="http://placehold.it/16x16">Sin gluten</p>
-                        <img class="center-block img" src="http://placehold.it/100x100">
-                    </div>
-                </div>
-
             </div>
+            <div class="col-xs-3">
+                <div class="product">
+                    <p class="brand">Eagle</p>
+                    <p class="name">Cacahuetes</p>
+                    <p class="gluten-free"><img src="http://placehold.it/16x16">Sin gluten</p>
+                    <img class="center-block img" src="http://placehold.it/100x100">
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="product">
+                    <p class="brand">Eagle</p>
+                    <p class="name">Cacahuetes</p>
+                    <p class="gluten-free"><img src="http://placehold.it/16x16">Sin gluten</p>
+                    <img class="center-block img" src="http://placehold.it/100x100">
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="product">
+                    <p class="brand">Eagle</p>
+                    <p class="name">Cacahuetes</p>
+                    <p class="gluten-free"><img src="http://placehold.it/16x16">Sin gluten</p>
+                    <img class="center-block img" src="http://placehold.it/100x100">
+                </div>
+            </div>
+
         </div>
     </div>
+</div>
 </section>
 {% endblock %}
 
 {% block extrajs %}
 <script>
-   console.log($("#search").attr("id"));
-    $("input").keyup(function(event){
+console.log($("#search").attr("id"));
+$("input").keyup(function(event){
         if(event.keyCode == 13){
-            $("#search").click();
+        $("#search").click();
         }
-    });
+        });
 
 
 $("#dropdown-wheat").off('click').on('click', function(){
@@ -114,83 +114,83 @@ $("#dropdown-all").off('click').on('click', function(){
 
 
 
-    $("#search").off('click').on('click', function(){
-            var data = $("input").val();
-            data = data.replace(/ +/g, ' ');
-            data = data.replace(/^ /gi, "");
-            data = data.replace(/ $/gi, "");
-            console.log(data);
-            if ((data.match(/ /g) || []).length >= 1) {
-                var query = data.replace(/ /g, '%26');
-    }
-            else {
-                var query = data.replace(/ /g, '');
-            }
+$("#search").off('click').on('click', function(){
+        var data = $("input").val();
+        data = data.replace(/ +/g, ' ');
+        data = data.replace(/^ /gi, "");
+        data = data.replace(/ $/gi, "");
+        console.log(data);
+        if ((data.match(/ /g) || []).length >= 1) {
+        var query = data.replace(/ /g, '%26');
+        }
+        else {
+        var query = data.replace(/ /g, '');
+        }
         $.ajax({
-          url: "/api/result?project_id=3292&info=name::" + query + "&fulltextsearch=1",
-        })
-          .done(function( data ) {
+url: "/api/result?project_id=3292&info=name::" + query + "&fulltextsearch=1",
+})
+        .done(function( data ) {
             if ( console && console.log ) {
-              console.log( "Sample of data:", data.slice( 0, 100 ) );
-              $(".row.products").html("");
+            console.log( "Sample of data:", data.slice( 0, 100 ) );
+            $(".row.products").html("");
 
 
-              if (data.length > 0) {
-              $("#n_results").text(data.length);
-              $("#search_term").text($("input").val());
-              for (i=0; i<data.length;i++) {
-                    var col = $("<div/>");
-                    col.addClass("col-xs-3");
-                    var product = $("<div/>");
-                    product.addClass("product");
-                    var brand = $("</p>");
-                    brand.addClass("brand");
-                    var name = $("</p>");
-                    name.addClass("name");
-                    var labels = $("</p>");
-                    if (data[i]['info']['labelGlutenFree'] === 'yes') {
-                        var iconGlutenFree = $("<img>");
-                        iconGlutenFree.attr("src", "http://placehold.it/16x16");
-                        labels.text(" Sin gluten");
-                        labels.prepend(iconGlutenFree);
-                        labels.addClass("gluten-free");
-                        col.addClass("gluten-free");
-                    }
+            if (data.length > 0) {
+            $("#n_results").text(data.length);
+            $("#search_term").text($("input").val());
+            for (i=0; i<data.length;i++) {
+            var col = $("<div/>");
+            col.addClass("col-xs-3");
+            var product = $("<div/>");
+            product.addClass("product");
+            var brand = $("</p>");
+            brand.addClass("brand");
+            var name = $("</p>");
+            name.addClass("name");
+            var labels = $("</p>");
+            if (data[i]['info']['labelGlutenFree'] === 'yes') {
+            var iconGlutenFree = $("<img>");
+            iconGlutenFree.attr("src", "http://placehold.it/16x16");
+            labels.text(" Sin gluten");
+            labels.prepend(iconGlutenFree);
+            labels.addClass("gluten-free");
+            col.addClass("gluten-free");
+            }
 
-                    if (data[i]['info']['ingredientsWheat'] === 'yes') {
-                        var iconWheat = $("<img>");
-                        iconWheat.attr("src", "http://placehold.it/16x16");
-                        labels.text(" Trigo o trazas");
-                        labels.prepend(iconWheat);
-                        labels.addClass("wheat");
-                        col.addClass("wheat");
-                    }
+            if (data[i]['info']['ingredientsWheat'] === 'yes') {
+                var iconWheat = $("<img>");
+                iconWheat.attr("src", "http://placehold.it/16x16");
+                labels.text(" Trigo o trazas");
+                labels.prepend(iconWheat);
+                labels.addClass("wheat");
+                col.addClass("wheat");
+            }
 
 
-                    product.append(brand);
-                    product.append(name);
-                    product.append(labels);
+            product.append(brand);
+            product.append(name);
+            product.append(labels);
 
-                    var productImg = $("<img/>");
-                    productImg.attr("src", "http://placehold.it/100x100");
-                    productImg.addClass("center-block img");
+            var productImg = $("<img/>");
+            productImg.attr("src", "http://placehold.it/100x100");
+            productImg.addClass("center-block img");
 
-                    name.text(data[i]['info']['name']);
-                    product.append(productImg);
-                    col.append(product);
-                    $(".row.products").append(col);
-              }
+            name.text(data[i]['info']['name']);
+            product.append(productImg);
+            col.append(product);
+            $(".row.products").append(col);
+            }
 
-              }
-              else {
+            }
+            else {
                 var p = $("</p>");
                 p.text("No results");
                 $("#searchresults").append(p);
             }
-                          
+
             }
-          });
-            });
+        });
+});
 </script>
 {% endblock %}
 
