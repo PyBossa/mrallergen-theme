@@ -115,11 +115,11 @@ url: "/api/result?project_id=3292&info=name::" + query + "&fulltextsearch=1",
             if ( console && console.log ) {
             console.log( "Sample of data:", data.slice( 0, 100 ) );
             $(".row.products").html("");
-
-
-            if (data.length > 0) {
+            $(".found").show();
             $("#n_results").text(data.length);
             $("#search_term").text($("input").val());
+
+            if (data.length > 0) {
             for (i=0; i<data.length;i++) {
             var col = $("<div/>");
             col.addClass("col-xs-3");
