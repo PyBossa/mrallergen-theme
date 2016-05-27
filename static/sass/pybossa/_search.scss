@@ -23,7 +23,7 @@ $input-height: 60px;
     .btn-search {
         border-radius: 0px;
         margin-top: 0px;
-        padding-top: 7px;
+        padding-top: 23px;
         height: 66px;
         border: none;
         background-color: $brand-primary;
@@ -68,6 +68,7 @@ $input-height: 60px;
 
 .products {
     margin-top: 15px;
+    margin-bottom: 15px;
     .gluten-free {
         color: green;
     }

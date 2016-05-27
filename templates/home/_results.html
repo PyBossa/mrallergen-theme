@@ -14,7 +14,7 @@
                           <input type="text" class="form-control" id="exampleInputAmount" placeholder="¿Qué buscas?">
                         </div>
                       </div>
-                      <button id="search" type="submit" class="btn btn-primary btn-search">Buscar</button>
+                      <a id="search" src="#" class="btn btn-primary btn-search">Buscar</a>
                     </form>
             </div>
         </div>
@@ -107,14 +107,39 @@
           .done(function( data ) {
             if ( console && console.log ) {
               console.log( "Sample of data:", data.slice( 0, 100 ) );
-              $("#searchresults").html("");
-              if (data.length > 0) {
-              for (i=0; i<data.length;i++) {
-                var p = $("</p>");
-                console.log(i);
-                p.text(data[i]['info']['name']);
-                $("#searchresults").append(p);
+              $(".row.products").html("");
 
+
+              if (data.length > 0) {
+              $("#n_results").text(data.length);
+              $("#search_term").text($("input").val());
+              for (i=0; i<data.length;i++) {
+                    var col = $("<div/>");
+                    col.addClass("col-xs-3");
+                    var product = $("<div/>");
+                    product.addClass("product");
+                    var brand = $("</p>");
+                    brand.addClass("brand");
+                    var name = $("</p>");
+                    name.addClass("name");
+                    var glutenFree = $("</p>");
+                    glutenFree.addClass("gluten-free");
+                    var iconGlutenFree = $("<img>");
+                    iconGlutenFree.attr("src", "http://placehold.it/16x16");
+                    var productImg= $("<img>");
+
+                    glutenFree.append(iconGlutenFree);
+                    product.append(brand);
+                    product.append(name);
+                    product.append(glutenFree);
+
+                    var productImg = $("<img/>");
+                    productImg.attr("src", "http://placehold.it/100x100");
+
+                    name.text(data[i]['info']['name']);
+                    product.append(productImg);
+                    col.append(product);
+                    $(".row.products").append(col);
               }
 
               }
