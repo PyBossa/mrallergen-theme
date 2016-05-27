@@ -94,6 +94,7 @@ $("#dropdown-wheat").off('click').on('click', function(){
         $("#default-option").html(html);
         $(".col-xs-3").hide();
         $(".col-xs-3.wheat").show();
+        $("#n_results").text($(".col-xs-3.wheat").length);
         }); 
 
 $("#dropdown-gluten-free").off('click').on('click', function(){
@@ -101,12 +102,14 @@ $("#dropdown-gluten-free").off('click').on('click', function(){
         $("#default-option").html(html);
         $(".col-xs-3").hide();
         $(".col-xs-3.gluten-free").show();
+        $("#n_results").text($(".col-xs-3.gluten-free").length);
         }); 
 
 $("#dropdown-all").off('click').on('click', function(){
         var html = $("#dropdown-all").text() + ' <span class="caret"></span>';
         $("#default-option").html(html);
         $(".col-xs-3").show();
+        $("#n_results").text($(".col-xs-3").length);
         }); 
 
 
@@ -151,6 +154,7 @@ $("#dropdown-all").off('click').on('click', function(){
                         labels.text(" Sin gluten");
                         labels.prepend(iconGlutenFree);
                         labels.addClass("gluten-free");
+                        col.addClass("gluten-free");
                     }
 
                     if (data[i]['info']['ingredientsWheat'] === 'yes') {
@@ -159,6 +163,7 @@ $("#dropdown-all").off('click').on('click', function(){
                         labels.text(" Trigo o trazas");
                         labels.prepend(iconWheat);
                         labels.addClass("wheat");
+                        col.addClass("wheat");
                     }
 
 
