@@ -1,0 +1,68 @@
+$input-height: 60px;
+.results {
+    background-color: #86B9D7;
+    padding-top: 35px;
+    padding-bottom: 15px;
+    
+     .jumbotron-search {
+         margin-top: 100px;
+         background-color: transparent;
+         height: 300px;
+    }
+
+    .input-group-addon {
+        border-radius: 2px;
+        background-color: white;
+    }
+
+    .input-group-lg {
+        height: $input-height;
+        padding: 18px 27px;
+    }
+
+    .btn-search {
+        border-radius: 0px;
+        margin-top: 0px;
+        padding-top: 7px;
+        height: 66px;
+        border: none;
+        background-color: $brand-primary;
+    }
+
+}
+
+.found {
+    min-height: 300px;
+    margin-top: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
+
+    .n-products-found {
+        font-size: 18px;
+        color: $brand-primary;
+        font-weight: bold;
+        padding-top: 12px;
+        margin-top: 1px;
+    }
+
+    .btn-options {
+        margin: 0px;
+        background-color: transparent;
+        border-radius: 0px;
+        border: 1px solid #D6DCDE;
+        text-transform: uppercase;
+    }
+
+    .btn-options:hover,
+    .btn-options:active,
+    .btn-options:focus {
+        color: $brand-primary;
+    }
+
+
+    button.btn.btn-default.btn-search {
+        margin-left: 15px;
+    }
+
+}
+

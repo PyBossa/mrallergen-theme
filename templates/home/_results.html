@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% set active_page = "results" %}
+
+{% block content %}
+<section class="results">
+    <div class="container">
+        <div class="row jumbotron-search">
+            <div class="col-xs-12 col-md-12 text-center">
+                <h1>Buscador de productos</h1>
+                    <form class="form-inline">
+                      <div class="form-group">
+                        <div class="input-group input-group-lg">
+                            <!--<div class="input-group-addon"><i class="fa fa-search"></i></div>-->
+                          <input type="text" class="form-control" id="exampleInputAmount" placeholder="¿Qué buscas?">
+                        </div>
+                      </div>
+                      <button id="search" type="submit" class="btn btn-primary btn-search">Buscar</button>
+                    </form>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="found">
+    <div class="container">
+        <div class="row products">
+            <div class="col-xs-6">
+                <p class="n-products-found"><span id="n_results">0</span> productos para "<span id="search_term"></span>"</p>
+            </div>
+            <div class="col-xs-6">
+                <!-- Single button -->
+                <div class="btn-group pull-right">
+                  <button type="button" class="btn btn-options dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Todos los productos<span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Sin gluten</a></li>
+                    <li><a href="#">Trigo o trazas</a></li>
+                  </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+{% endblock %}
+
+{% block extrajs %}
+<script>
+   console.log($("#search").attr("id"));
+    $("input").keyup(function(event){
+        if(event.keyCode == 13){
+            $("#search").click();
+        }
+    });
+
+
+    $("#search").off('click').on('click', function(){
+            var data = $("input").val();
+            data = data.replace(/ +/g, ' ');
+            data = data.replace(/^ /gi, "");
+            data = data.replace(/ $/gi, "");
+            console.log(data);
+            if ((data.match(/ /g) || []).length >= 1) {
+                var query = data.replace(/ /g, '%26');
+    }
+            else {
+                var query = data.replace(/ /g, '');
+            }
+        $.ajax({
+          url: "/api/result?project_id=3292&info=name::" + query + "&fulltextsearch=1",
+        })
+          .done(function( data ) {
+            if ( console && console.log ) {
+              console.log( "Sample of data:", data.slice( 0, 100 ) );
+              $("#searchresults").html("");
+              if (data.length > 0) {
+              for (i=0; i<data.length;i++) {
+                var p = $("</p>");
+                console.log(i);
+                p.text(data[i]['info']['name']);
+                $("#searchresults").append(p);
+
+              }
+
+              }
+              else {
+                var p = $("</p>");
+                p.text("No results");
+                $("#searchresults").append(p);
+            }
+                          
+            }
+          });
+            });
+</script>
+{% endblock %}
+
