@@ -66,3 +66,30 @@ $input-height: 60px;
 
 }
 
+.products {
+    margin-top: 15px;
+    .gluten-free {
+        color: green;
+    }
+
+    .product {
+        border: 1px solid #D6DCDE;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 5px;
+        padding-bottom: 25px;
+        .brand {
+            margin-bottom: 2px;
+        }
+
+        .name {
+            margin-bottom: 2px;
+        }
+
+        .img {
+            padding-top: 5px;
+
+        }
+    }
+}
+
