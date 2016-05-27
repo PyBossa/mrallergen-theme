@@ -73,12 +73,17 @@ $input-height: 60px;
         color: green;
     }
 
+    .wheat {
+        color: red;
+    }
+
     .product {
         border: 1px solid #D6DCDE;
         padding-left: 15px;
         padding-right: 15px;
         padding-top: 5px;
         padding-bottom: 25px;
+        min-height: 235px;
         .brand {
             margin-bottom: 2px;
         }

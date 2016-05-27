@@ -7,15 +7,14 @@
         <div class="row jumbotron-search">
             <div class="col-xs-12 col-md-12 text-center">
                 <h1>Buscador de productos</h1>
-                    <form class="form-inline">
-                      <div class="form-group">
-                        <div class="input-group input-group-lg">
-                            <!--<div class="input-group-addon"><i class="fa fa-search"></i></div>-->
-                          <input type="text" class="form-control" id="exampleInputAmount" placeholder="¿Qué buscas?">
-                        </div>
-                      </div>
-                      <a id="search" src="#" class="btn btn-primary btn-search">Buscar</a>
-                    </form>
+                <div class="row">
+                    <div class="col-xs-4 col-xs-offset-3">
+                        <input type="text" class="input-group-lg form-control" placeholder="¿Qué buscas?">
+                    </div>
+                    <div class="col-xs-2">
+                        <a id="search" src="#" class="btn btn-primary btn-search">Buscar</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -122,19 +121,31 @@
                     brand.addClass("brand");
                     var name = $("</p>");
                     name.addClass("name");
-                    var glutenFree = $("</p>");
-                    glutenFree.addClass("gluten-free");
-                    var iconGlutenFree = $("<img>");
-                    iconGlutenFree.attr("src", "http://placehold.it/16x16");
-                    var productImg= $("<img>");
+                    var labels = $("</p>");
+                    if (data[i]['info']['labelGlutenFree'] === 'yes') {
+                        var iconGlutenFree = $("<img>");
+                        iconGlutenFree.attr("src", "http://placehold.it/16x16");
+                        labels.text(" Sin gluten");
+                        labels.prepend(iconGlutenFree);
+                        labels.addClass("gluten-free");
+                    }
 
-                    glutenFree.append(iconGlutenFree);
+                    if (data[i]['info']['ingredientsWheat'] === 'yes') {
+                        var iconWheat = $("<img>");
+                        iconWheat.attr("src", "http://placehold.it/16x16");
+                        labels.text(" Trigo o trazas");
+                        labels.prepend(iconWheat);
+                        labels.addClass("wheat");
+                    }
+
+
                     product.append(brand);
                     product.append(name);
-                    product.append(glutenFree);
+                    product.append(labels);
 
                     var productImg = $("<img/>");
                     productImg.attr("src", "http://placehold.it/100x100");
+                    productImg.addClass("center-block img");
 
                     name.text(data[i]['info']['name']);
                     product.append(productImg);
