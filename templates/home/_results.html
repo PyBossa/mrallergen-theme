@@ -194,7 +194,28 @@ url: "/api/result?project_id=3292&info=name::" + query + "&fulltextsearch=1",
 
             var classification = $("<div/>");
             classification.addClass("classification");
-            classification.append(labels);
+            var labelsBig = $("</p>");
+            if (data[i]['info']['labelGlutenFree'] === 'yes') {
+            var iconGlutenFree = $("<img>");
+            iconGlutenFree.attr("src", "http://placehold.it/16x16");
+            labelsBig.text(" Sin gluten");
+            labelsBig.prepend(iconGlutenFree);
+            labelsBig.addClass("gluten-free");
+            classification.addClass("gluten-free");
+            col.addClass("gluten-free");
+            }
+
+            if (data[i]['info']['ingredientsWheat'] === 'yes') {
+                var iconWheat = $("<img>");
+                iconWheat.attr("src", "http://placehold.it/16x16");
+                labelsBig.text(" Trigo o trazas");
+                labelsBig.prepend(iconWheat);
+                labelsBig.addClass("wheat");
+                classification.addClass("wheat");
+                col.addClass("wheat");
+            }
+
+            classification.append(labelsBig);
             var explanation = $("<p/>");
             if (data[i]['info']['labelGlutenFree'] === 'yes') {
                 var n_people = data[i]['info']['labelGlutenFreeSummary']['count'];
