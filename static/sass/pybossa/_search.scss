@@ -119,6 +119,14 @@ $input-height: 60px;
 
 .selected-product {
     display: none;
+    margin-top: 15px;
+    #back {
+        padding-top:5px;
+        padding-bottom:5px;
+    }
+    .selected {
+        display: none;
+    }
     .square {
         border: 1px solid #D6DCDE;
         padding: 15px;
