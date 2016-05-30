@@ -109,12 +109,13 @@ $("#search").off('click').on('click', function(){
         var query = data.replace(/ /g, '');
         }
         $.ajax({
-url: "/api/result?info=name::" + query + "&fulltextsearch=1",
+url: "/api/result?project_id=3292&info=name::" + query + "&fulltextsearch=1",
 })
         .done(function( data ) {
             if ( console && console.log ) {
             console.log( "Sample of data:", data.slice( 0, 100 ) );
             $(".row.products").html("");
+            $(".row.selected").remove();
             $(".found").show();
             $("#n_results").text(data.length);
             $("#search_term").text($("input").val());
