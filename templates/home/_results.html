@@ -109,7 +109,7 @@ $("#search").off('click').on('click', function(){
         var query = data.replace(/ /g, '');
         }
         $.ajax({
-url: "/api/result?project_id=3292&info=name::" + query + "&fulltextsearch=1",
+url: "/api/result?project_id=10&info=name::" + query + "&fulltextsearch=1",
 })
         .done(function( data ) {
             if ( console && console.log ) {
