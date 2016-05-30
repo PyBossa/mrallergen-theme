@@ -1,0 +1,152 @@
+$input-height: 60px;
+.results {
+    background-color: #86B9D7;
+    padding-top: 35px;
+    padding-bottom: 15px;
+    
+     .jumbotron-search {
+         margin-top: 100px;
+         background-color: transparent;
+         height: 300px;
+    }
+
+    .input-group-addon {
+        border-radius: 2px;
+        background-color: white;
+    }
+
+    .input-group-lg {
+        height: $input-height;
+        padding: 18px 27px;
+    }
+
+    .btn-search {
+        border-radius: 0px;
+        margin-top: 0px;
+        padding-top: 23px;
+        height: 66px;
+        border: none;
+        background-color: $brand-primary;
+    }
+
+}
+
+.found {
+    display: none;
+    min-height: 300px;
+    margin-top: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
+
+    .n-products-found {
+        font-size: 18px;
+        color: $brand-primary;
+        font-weight: bold;
+        padding-top: 12px;
+        margin-top: 1px;
+    }
+
+    .btn-options {
+        min-width: 222px;
+        margin: 0px;
+        background-color: transparent;
+        border-radius: 0px;
+        border: 1px solid #D6DCDE;
+        text-transform: uppercase;
+    }
+
+    .dropdown-menu {
+        min-width: 222px;
+        margin-top: -1px;
+        border-radius: 0;
+    }
+
+    .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
+        text-decoration: none;
+        color: $brand-primary;
+        background-color: #EEEEEE;
+    }
+
+    .btn-options:hover,
+    .btn-options:active,
+    .btn-options:focus {
+        color: $brand-primary;
+    }
+
+
+    button.btn.btn-default.btn-search {
+        margin-left: 15px;
+    }
+
+}
+
+.gluten-free {
+    color: green;
+}
+
+.wheat {
+    color: red;
+}
+
+
+.products {
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    .product {
+        cursor: pointer;
+        border: 1px solid #D6DCDE;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 5px;
+        padding-bottom: 25px;
+        min-height: 235px;
+        img {
+            max-width: 100px;
+        }
+        .brand {
+            margin-bottom: 2px;
+        }
+
+        .name {
+            margin-bottom: 2px;
+        }
+
+        .img {
+            padding-top: 5px;
+
+        }
+    }
+    .product:hover {
+        border: 1px solid #6B6E6F;
+    }
+}
+
+.selected-product {
+    display: none;
+    margin-top: 15px;
+    #back {
+        display: block;
+        padding-top:5px;
+        padding-bottom:5px;
+    }
+    .selected {
+        display: none;
+    }
+    .square {
+        border: 1px solid #D6DCDE;
+        padding: 15px;
+    }
+
+    .brand {
+        font-size: 24px;
+        text-transform: underline;
+    }
+
+    .classification {
+        border: 1px solid;
+        padding-top: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}

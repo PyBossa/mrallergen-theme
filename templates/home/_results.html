@@ -1,0 +1,264 @@
+{% extends "base.html" %}
+{% set active_page = "results" %}
+
+{% block content %}
+<section class="results">
+    <div class="container">
+        <div class="row jumbotron-search">
+            <div class="col-xs-12 col-md-12 text-center">
+                <h1>Buscador de productos</h1>
+                <div class="row">
+                    <div class="col-xs-4 col-xs-offset-3">
+                        <input type="text" class="input-group-lg form-control" placeholder="¿Qué buscas?">
+                    </div>
+                    <div class="col-xs-2">
+                        <a id="search" src="#" class="btn btn-primary btn-search">Buscar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="found">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6">
+                <p class="n-products-found"><span id="n_results">0</span> productos para "<span id="search_term"></span>"</p>
+            </div>
+            <div class="col-xs-6">
+                <!-- Single button -->
+                <div class="btn-group pull-right">
+                    <button id="default-option" type="button" class="btn btn-options dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Todos los productos <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a id="dropdown-gluten-free" href="#">Sin gluten</a></li>
+                        <li><a id="dropdown-wheat" href="#">Trigo o trazas</a></li>
+                        <li><a id="dropdown-all" href="#">Todos los productos</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row products"></div>
+    </div>
+</div>
+</section>
+<section class="selected-product">
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <a href="#" id="back"><i class="fa fa-chevron-left"></i> Atrás</a>
+        </div>
+    </div>
+</div>
+</section>
+{% endblock %}
+
+{% block extrajs %}
+<script>
+console.log($("#search").attr("id"));
+$("input").keyup(function(event){
+        if(event.keyCode == 13){
+        $("#search").click();
+        }
+        });
+
+
+$("#dropdown-wheat").off('click').on('click', function(){
+        var html = $("#dropdown-wheat").text() + ' <span class="caret"></span>';
+        $("#default-option").html(html);
+        $(".col-xs-3").hide();
+        $(".col-xs-3.wheat").show();
+        $("#n_results").text($(".col-xs-3.wheat").length);
+        }); 
+
+$("#dropdown-gluten-free").off('click').on('click', function(){
+        var html = $("#dropdown-gluten-free").text() + ' <span class="caret"></span>';
+        $("#default-option").html(html);
+        $(".col-xs-3").hide();
+        $(".col-xs-3.gluten-free").show();
+        $("#n_results").text($(".col-xs-3.gluten-free").length);
+        }); 
+
+$("#dropdown-all").off('click').on('click', function(){
+        var html = $("#dropdown-all").text() + ' <span class="caret"></span>';
+        $("#default-option").html(html);
+        $(".col-xs-3").show();
+        $("#n_results").text($(".col-xs-3").length);
+        }); 
+
+$("#back").off('click').on('click', function(){
+        $(".row.products").show();
+        $(".found").show();
+        $(".selected-product").hide();
+        var id = $("#back").data("close");
+        $("#" + id + "-big").hide();
+        });
+
+
+$("#search").off('click').on('click', function(){
+        var data = $("input").val();
+        data = data.replace(/ +/g, ' ');
+        data = data.replace(/^ /gi, "");
+        data = data.replace(/ $/gi, "");
+        console.log(data);
+        if ((data.match(/ /g) || []).length >= 1) {
+        var query = data.replace(/ /g, '%26');
+        }
+        else {
+        var query = data.replace(/ /g, '');
+        }
+        $.ajax({
+url: "/api/result?project_id=3292&info=name::" + query + "&fulltextsearch=1",
+})
+        .done(function( data ) {
+            if ( console && console.log ) {
+            console.log( "Sample of data:", data.slice( 0, 100 ) );
+            $(".row.products").html("");
+            $(".found").show();
+            $("#n_results").text(data.length);
+            $("#search_term").text($("input").val());
+
+            if (data.length > 0) {
+            for (i=0; i<data.length;i++) {
+            var col = $("<div/>");
+            col.addClass("col-xs-3");
+            var product = $("<div/>");
+            product.attr("id", "product-" + i);
+            product.addClass("product");
+            var brand = $("</p>");
+            brand.addClass("brand");
+            var name = $("</p>");
+            name.addClass("name");
+            var labels = $("</p>");
+            if (data[i]['info']['labelGlutenFree'] === 'yes') {
+                var iconGlutenFree = $("<img>");
+                iconGlutenFree.attr("src", "http://placehold.it/16x16");
+                labels.text(" Sin gluten");
+                labels.prepend(iconGlutenFree);
+                labels.addClass("gluten-free");
+                col.addClass("gluten-free");
+            }
+
+            if (data[i]['info']['ingredientsWheat'] === 'yes') {
+                var iconWheat = $("<img>");
+                iconWheat.attr("src", "http://placehold.it/16x16");
+                labels.text(" Trigo o trazas");
+                labels.prepend(iconWheat);
+                labels.addClass("wheat");
+                col.addClass("wheat");
+            }
+
+
+            product.append(brand);
+            product.append(name);
+            product.append(labels);
+
+            var productImg = $("<img/>");
+            productImg.attr("src", "http://placehold.it/400x400");
+            productImg.addClass("center-block img");
+
+            name.text(data[i]['info']['name']);
+            product.append(productImg);
+            col.append(product);
+            $(".row.products").append(col);
+
+
+            // SELECTED PRODUCT CREATION
+            var row = $("<div/>");
+            row.addClass("row selected");
+            row.attr("id", "product-" + i + "-big");
+            var colImg = $("<div/>");
+            colImg.addClass("col-xs-6");
+            var colData = $("<div/>");
+            colData.addClass("col-xs-6");
+
+            var square = $("<div/>");
+            square.addClass("square");
+            var productImgBig = $("<img/>");
+            productImgBig.attr("src", "http://placehold.it/400x400");
+            productImgBig.addClass("center-block img");
+
+            square.append(productImgBig);
+            colImg.append(square);
+
+            var aBrand = $("<a/>");
+            aBrand.text("");
+            colData.append(aBrand);
+
+            var nameBig = $("</p>");
+            nameBig.addClass("name");
+            nameBig.text(data[i]['info']['name']);
+
+            colData.append(nameBig);
+
+            var classification = $("<div/>");
+            classification.addClass("classification");
+            var labelsBig = $("</p>");
+            if (data[i]['info']['labelGlutenFree'] === 'yes') {
+                var iconGlutenFree = $("<img>");
+                iconGlutenFree.attr("src", "http://placehold.it/16x16");
+                labelsBig.text(" Sin gluten");
+                labelsBig.prepend(iconGlutenFree);
+                labelsBig.addClass("gluten-free");
+                classification.addClass("gluten-free");
+                col.addClass("gluten-free");
+            }
+
+            if (data[i]['info']['ingredientsWheat'] === 'yes') {
+                var iconWheat = $("<img>");
+                iconWheat.attr("src", "http://placehold.it/16x16");
+                labelsBig.text(" Trigo o trazas");
+                labelsBig.prepend(iconWheat);
+                labelsBig.addClass("wheat");
+                classification.addClass("wheat");
+                col.addClass("wheat");
+            }
+
+            classification.append(labelsBig);
+            var explanation = $("<p/>");
+            if (data[i]['info']['labelGlutenFree'] === 'yes') {
+                var n_people = data[i]['info']['labelGlutenFreeSummary']['count'];
+            }
+            if (data[i]['info']['ingredientsWheat'] === 'yes') {
+                var n_people = data[i]['info']['ingredientsWheatSummary']['count'];
+            }
+            explanation.text(n_people + " personas han revisado este producto y lo han clasificado así");
+            classification.append(explanation);
+
+            colData.append(classification);
+
+            var link = $("<a/>");
+            link.addClass("btn btn-primary");
+            link.attr("href", data[i]['info']['url']);
+            link.text("Ver en Soysuper");
+
+            colData.append(link);
+            row.append(colImg);
+            row.append(colData);
+            $(".selected-product > .container").append(row);
+
+            $(".product").off('click').on('click', function(event){
+                    var id = $(this).attr("id");
+                    $(".row.products").hide();
+                    $(".found").hide();
+                    $(".selected-product").show();
+                    $("#" + id + "-big").show();
+                    $("#back").data("close", id);
+                    });
+            }
+
+
+            }
+            else {
+                var p = $("</p>");
+                p.text("No results");
+                $("#searchresults").append(p);
+            }
+
+            }
+        });
+});
+</script>
+{% endblock %}
+
