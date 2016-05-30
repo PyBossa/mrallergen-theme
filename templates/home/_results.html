@@ -115,6 +115,7 @@ url: "/api/result?info=name::" + query + "&fulltextsearch=1",
             if ( console && console.log ) {
             console.log( "Sample of data:", data.slice( 0, 100 ) );
             $(".row.products").html("");
+            $(".row.selected").remove();
             $(".found").show();
             $("#n_results").text(data.length);
             $("#search_term").text($("input").val());
