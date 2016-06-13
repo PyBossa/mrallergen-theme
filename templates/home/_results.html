@@ -199,7 +199,7 @@ url: "/api/result?project_id=3292&info=name::" + query + "&fulltextsearch=1",
             var labelsBig = $("</p>");
             if (data[i]['info']['labelGlutenFree'] === 'yes') {
                 var iconGlutenFree = $("<img>");
-                iconGlutenFree.attr("src", "http://placehold.it/16x16");
+                iconGlutenFree.attr("src", "/static/img/green-gluten.svg");
                 labelsBig.text(" Sin gluten");
                 labelsBig.prepend(iconGlutenFree);
                 labelsBig.addClass("gluten-free");
@@ -209,7 +209,7 @@ url: "/api/result?project_id=3292&info=name::" + query + "&fulltextsearch=1",
 
             if (data[i]['info']['ingredientsWheat'] === 'yes') {
                 var iconWheat = $("<img>");
-                iconWheat.attr("src", "http://placehold.it/16x16");
+                iconWheat.attr("src", "/static/img/red-gluten.svg");
                 labelsBig.text(" Trigo o trazas");
                 labelsBig.prepend(iconWheat);
                 labelsBig.addClass("wheat");
