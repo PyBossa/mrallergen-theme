@@ -1,4 +1,4 @@
-$.ajax({url:'/api/result'}).done(function(data){
+$.ajax({url:'/api/result?project_id=3292'}).done(function(data){
     for(i=0;i<data.length;i++) {
         if (data[i]['info']) {
             var slide = $("<div/>");
@@ -66,6 +66,8 @@ $.ajax({url:'/api/result'}).done(function(data){
 
     // Create slides
     var swiper = new Swiper('.swiper-container', { 
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
     });
 });
 
