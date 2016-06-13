@@ -152,6 +152,7 @@ url: "/api/result?info=name::" + query + "&fulltextsearch=1",
                 labels.prepend(iconWheat);
                 labels.addClass("wheat");
                 col.addClass("wheat");
+                labels.addClass("classification-label");
             }
 
             if (!oneLabel) {
@@ -215,6 +216,7 @@ url: "/api/result?info=name::" + query + "&fulltextsearch=1",
                 labelsBig.addClass("gluten-free");
                 classification.addClass("gluten-free");
                 col.addClass("gluten-free");
+                labelsBig.addClass("classification-label");
             }
 
             if (data[i]['info']['ingredientsWheat'] === 'yes') {
@@ -225,6 +227,7 @@ url: "/api/result?info=name::" + query + "&fulltextsearch=1",
                 labelsBig.addClass("wheat");
                 classification.addClass("wheat");
                 col.addClass("wheat");
+                labelsBig.addClass("classification-label");
             }
 
             classification.append(labelsBig);
