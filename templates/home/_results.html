@@ -109,7 +109,7 @@ $("#search").off('click').on('click', function(){
         var query = data.replace(/ /g, '');
         }
         $.ajax({
-url: "/api/result?info=name::" + query + "&fulltextsearch=1",
+url: "/api/result?project_id=3292&info=name::" + query + "&fulltextsearch=1",
 })
         .done(function( data ) {
             if ( console && console.log ) {
@@ -196,7 +196,8 @@ url: "/api/result?info=name::" + query + "&fulltextsearch=1",
             colImg.append(square);
 
             var aBrand = $("<a/>");
-            aBrand.text("");
+            aBrand.text(data[i]['info']['brand']);
+            aBrand.addClass("brand");
             colData.append(aBrand);
 
             var nameBig = $("</p>");
