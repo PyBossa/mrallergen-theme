@@ -1,4 +1,4 @@
-$.ajax({url:'/api/result?project_id=3292'}).done(function(data){
+$.ajax({url:'/api/result'}).done(function(data){
     for(i=0;i<data.length;i++) {
         if (data[i]['info']) {
             var slide = $("<div/>");
