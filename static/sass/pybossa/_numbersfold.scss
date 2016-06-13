@@ -1,6 +1,13 @@
 .numbers{
     background-color: #f5f7f7;
-    padding: 35px;
+    padding: 5px;
+}
+
+.numbers > h2 {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 14px !important;
+    padding-bottom: 10px;
 }
 
 @media (max-width: 768px) {

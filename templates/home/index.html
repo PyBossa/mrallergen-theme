@@ -2,6 +2,7 @@
 {% import "projects/_helpers.html" as helper %}
 {% import "account/_helpers.html" as account_helper %}
 {% block content %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/swiper.css')}}">
 <section class="home featured">
     <div class="jumbotron">
         <div class="container text-center firstfold">
@@ -28,6 +29,15 @@
             </div>
             {% endif %}
         </div>
+    </div>
+</section>
+<section class="numbers">
+    <h2>Últimos clasificados</h2>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
     </div>
 </section>
 <section class="numbers" style="display:none;">
@@ -79,3 +89,10 @@
 
 </section>
 {% endblock %}
+{% block extrajs %}
+{% assets filters="jsmin", output="js/gen/searchfront.min.js",
+    "js/searchfrontpage.js" %}
+    <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+{% endassets %}
+{%endblock %}
+
