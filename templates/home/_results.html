@@ -99,7 +99,7 @@ function search(queryData) {
         queryData = queryData.replace(/ +/g, ' ');
         queryData = queryData.replace(/^ /gi, "");
         queryData = queryData.replace(/ $/gi, "");
-        if ((data.match(/ /g) || []).length >= 1) {
+        if ((queryData.match(/ /g) || []).length >= 1) {
         var query = queryData.replace(/ /g, '%26');
         }
         else {
