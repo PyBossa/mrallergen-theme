@@ -23,7 +23,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-8">
-                <p class="n-products-found"><span id="n_results">0</span> productos para "<span id="search_term"></span>"</p>
+                <p class="n-products-found"><span id="n_results">0</span> resultados para "<span id="search_term"></span>"</p>
             </div>
             <div class="col-xs-12 col-sm-4">
                 <!-- Single button -->
@@ -134,7 +134,7 @@ url: "/api/result?info=name::" + query + "&fulltextsearch=1",
             var labels = $("</p>");
             if (data[i]['info']['labelGlutenFree'] === 'yes') {
                 var iconGlutenFree = $("<img>");
-                iconGlutenFree.attr("src", "http://placehold.it/16x16");
+                iconGlutenFree.attr("src", "/static/img/green-gluten.svg");
                 labels.text(" Sin gluten");
                 labels.prepend(iconGlutenFree);
                 labels.addClass("gluten-free");
@@ -143,7 +143,7 @@ url: "/api/result?info=name::" + query + "&fulltextsearch=1",
 
             if (data[i]['info']['ingredientsWheat'] === 'yes') {
                 var iconWheat = $("<img>");
-                iconWheat.attr("src", "http://placehold.it/16x16");
+                iconWheat.attr("src", "/static/img/red-gluten.svg");
                 labels.text(" Trigo o trazas");
                 labels.prepend(iconWheat);
                 labels.addClass("wheat");
@@ -157,7 +157,7 @@ url: "/api/result?info=name::" + query + "&fulltextsearch=1",
 
             var productImg = $("<img/>");
             productImg.attr("src", data[i]['info']['productImg']);
-            productImg.addClass("center-block img");
+            productImg.addClass("img img-responsive");
 
             name.text(data[i]['info']['name']);
             product.append(productImg);

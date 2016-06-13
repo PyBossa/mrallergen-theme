@@ -17,7 +17,7 @@ $input-height: 50px;
 
     .input-group-lg {
         height: $input-height;
-        padding: 18px 27px;
+        padding: 18px 15px;
         border-radius: 4px;
         font-size: 16px;
         border: none;
@@ -93,7 +93,7 @@ $input-height: 50px;
 }
 
 .gluten-free {
-    color: green;
+    color: #94CA55;
 }
 
 .wheat {
@@ -115,9 +115,7 @@ $input-height: 50px;
         padding-top: 5px;
         padding-bottom: 25px;
         min-height: 235px;
-        img {
-            max-width: 100px;
-        }
+       
         .brand {
             margin-bottom: 2px;
         }
@@ -173,6 +171,7 @@ $input-height: 50px;
     
     .found .btn-group{
         width: 100%;
+        margin-top: 15px;
     }
 
     .found .dropdown-menu{
