@@ -1,13 +1,13 @@
-$input-height: 60px;
+$input-height: 50px;
 .results {
     background-color: #86B9D7;
     padding-top: 35px;
     padding-bottom: 15px;
     
      .jumbotron-search {
-         margin-top: 100px;
-         background-color: transparent;
-         height: 300px;
+            margin-top: 40px;
+            background-color: transparent;
+            height: 250px;
     }
 
     .input-group-addon {
@@ -18,17 +18,29 @@ $input-height: 60px;
     .input-group-lg {
         height: $input-height;
         padding: 18px 27px;
+        border-radius: 4px;
+        font-size: 16px;
+        border: none;
+        margin-top: 20px;
     }
 
     .btn-search {
-        border-radius: 0px;
-        margin-top: 0px;
-        padding-top: 23px;
-        height: 66px;
+        margin-top: 20px;
+        padding-top: 13px;
+        height: 50px;
         border: none;
+        width: 100%;
         background-color: $brand-primary;
     }
 
+    h1{
+        font-size: 32px;
+    }
+
+}
+
+.search-group{
+    margin-top: 20px;
 }
 
 .found {
@@ -94,8 +106,10 @@ $input-height: 60px;
     margin-bottom: 15px;
 
     .product {
+        margin-top: 15px;
         cursor: pointer;
         border: 1px solid #D6DCDE;
+        border-radius: 1px;
         padding-left: 15px;
         padding-right: 15px;
         padding-top: 5px;
@@ -149,4 +163,25 @@ $input-height: 60px;
         padding-left: 10px;
         padding-right: 10px;
     }
+}
+
+@media (max-width: 415px) {
+    .results{padding-top: 5px;}
+    .results h1{ font-size: 28px;    }
+    .results .jumbotron-search { margin-top: 25px;}
+    .search-group{margin-top: 0px;}
+    
+    .found .btn-group{
+        width: 100%;
+    }
+
+    .found .dropdown-menu{
+        width: 100%;
+    }
+
+    .dropdown-menu>li>a{
+        line-height: 2.5;
+    }
+
+
 }
