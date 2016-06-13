@@ -66,7 +66,6 @@ $.ajax({url:'/api/result'}).done(function(data){
 
     // Create slides
     var swiper = new Swiper('.swiper-container', { 
-        pagination: '.swiper-pagination'
     });
 });
 
