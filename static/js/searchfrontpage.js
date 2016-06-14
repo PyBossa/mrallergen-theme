@@ -17,12 +17,13 @@ function resultsDesktop(data) {
     row.addClass("row products");
     container.append(row);
     $(".numbers").append(container);
-    var data = data.slice(0,4);
+    var total = 0;
     for (i=0; i<data.length;i++) {
         if (data[i]['info']) {
+            var location = "/results?name=" + encodeURIComponent(data[i]['info']['name']);
             var col = $("<div/>");
             col.addClass("col-xs-12 col-sm-6 col-md-4 col-lg-3 div-product");
-            var product = $("<div/>");
+            var product = $("<div/>", {"data-location": location });
             product.attr("id", "product-" + i);
             product.addClass("product");
             var brand = $("</p>");
@@ -71,8 +72,17 @@ function resultsDesktop(data) {
 
             name.text(data[i]['info']['name']);
             product.append(divImg);
+            product.on('click', function(){
+                window.location.href = $(this).data('location');
+            });
             col.append(product);
-            $(".row.products").append(col);
+            if (oneLabel) {
+                total += 1;
+                $(".row.products").append(col);
+            }
+            if (total === 4) {
+                break;
+            }
         }
     }
 }
