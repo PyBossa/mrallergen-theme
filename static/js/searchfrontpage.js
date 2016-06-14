@@ -59,7 +59,10 @@ $.ajax({url:'/api/result'}).done(function(data){
             slide.addClass("swiper-slide");
             slide.append(col);
             slide.append(col2);
-            $(".swiper-wrapper").append(slide);
+            console.log(oneLabel);
+            if (oneLabel) {
+                $(".swiper-wrapper").append(slide);
+            }
 
         }
     }
