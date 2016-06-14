@@ -40,7 +40,7 @@ function search(queryData, showBig) {
         var query = queryData.replace(/ /g, '');
     }
     $.ajax({
-        url: "/api/result?info=name::" + query + "&fulltextsearch=1",
+        url: "/api/result?project_id=3292&info=name::" + query + "&fulltextsearch=1",
     })
     .done(function( data ) {
         var n_products_added = 0;
@@ -195,11 +195,17 @@ function search(queryData, showBig) {
                     link.addClass("btn btn-primary");
                     link.attr("href", data[i]['info']['url']);
                     link.text("Ver en Soysuper");
+                    var backCol = $("<div/>");
+                    backCol.addClass("col-xs-12 col-md-10 col-md-offset-2");
+                    var backRow = $("<div/>");
+                    backRow.addClass("row row-back");
                     var back2 = $("<a/>");
                     back2.addClass("back hidden-md hidden-lg");
                     back2.html('<i class="fa  fa-lg fa-chevron-left"></i> Atrás');
+                    backCol.append(back2);
+                    backRow.append(backCol);
                     colData.append(link);
-                    colData.append(back2);
+                    colData.append(backRow);
                     row.append(colImg);
                     row.append(colData);
                     $(".selected-product > .container").append(row);
