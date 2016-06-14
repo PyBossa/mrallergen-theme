@@ -101,11 +101,10 @@ function search(queryData, showBig) {
 url: "/api/result?info=name::" + query + "&fulltextsearch=1",
 })
         .done(function( data ) {
-            var daniel = 0;
+            var n_products_added = 0;
             if ( console && console.log ) {
             $(".row.products").html("");
             $(".row.selected").remove();
-            $("#n_results").text(data.length);
             $("#search_term").text($("input").val());
             $("#search_term").text(queryData);
 
@@ -164,7 +163,9 @@ url: "/api/result?info=name::" + query + "&fulltextsearch=1",
             product.append(divImg);
             col.append(product);
             if (oneLabel) {
+                n_products_added += 1;
                 $(".row.products").append(col);
+                $("#n_results").text(n_products_added);
             }
 
             // SELECTED PRODUCT CREATION
