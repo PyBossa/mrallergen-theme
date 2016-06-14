@@ -43,12 +43,9 @@ section.home.projects {
         max-width: 100px;
     }
     
+    .name,
     .brand {
-        text-align: left;
-    }
-    .name {
         text-align:left;
-        text-overflow: ellipsis;
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 1; /* number of lines to show */

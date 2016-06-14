@@ -1,11 +1,11 @@
-$.ajax({url:'/api/result'}).done(function(data){
+$.ajax({url:'/api/result?project_id=3292'}).done(function(data){
     for(i=0;i<data.length;i++) {
         if (data[i]['info']) {
             var slide = $("<div/>");
             var col = $("<div/>");
-            col.addClass("col-xs-6 col-sm-6 col-md-4 col-lg-3 div-product");
+            col.addClass("div-product");
             var col2 = $("<div/>");
-            col.addClass("col-xs-6 col-sm-6 col-md-4 col-lg-3 div-product");
+            col2.addClass("col-xs-6 col-sm-6 col-md-4 col-lg-3 div-product");
             var brand = $("</p>");
             brand.addClass("brand");
             var name = $("</p>");

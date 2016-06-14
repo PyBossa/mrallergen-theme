@@ -106,7 +106,7 @@ function search(queryData) {
         var query = queryData.replace(/ /g, '');
         }
         $.ajax({
-url: "/api/result?info=name::" + query + "&fulltextsearch=1",
+url: "/api/result?project_id=3292&info=name::" + query + "&fulltextsearch=1",
 })
         .done(function( data ) {
             if ( console && console.log ) {
