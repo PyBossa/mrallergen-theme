@@ -168,3 +168,15 @@ function resultsMobile(data) {
         prevButton: '.swiper-button-prev',
     });
 }
+
+$("input").keyup(function(event){
+        if(event.keyCode == 13){
+        var data = $("input").val();
+        window.location.href = "/results?name=" + encodeURIComponent(data);
+        }
+        });
+
+$("#search").off('click').on('click', function(){
+    var data = $("input").val();
+    window.location.href = "/results?name=" + encodeURIComponent(data);
+});
