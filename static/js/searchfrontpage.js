@@ -1,7 +1,9 @@
 $.ajax({url:'/api/result?project_id=3292'}).done(function(data){
     for(i=0;i<data.length;i++) {
         if (data[i]['info']) {
-            var slide = $("<div/>");
+            var location = "/results?name=" + encodeURIComponent(data[i]['info']['name']);
+            var slide = $("<div/>", {"data-location": location });
+            var a = $("<a/>");
             var col = $("<div/>");
             col.addClass("div-product");
             var col2 = $("<div/>");
@@ -59,7 +61,10 @@ $.ajax({url:'/api/result?project_id=3292'}).done(function(data){
             slide.addClass("swiper-slide");
             slide.append(col);
             slide.append(col2);
-            console.log(oneLabel);
+            slide.attr("id", "product-" + data[i]['id']);
+            slide.on('click', function(){
+                window.location.href = $(this).data('location');
+            });
             if (oneLabel) {
                 $(".swiper-wrapper").append(slide);
             }
@@ -72,5 +77,6 @@ $.ajax({url:'/api/result?project_id=3292'}).done(function(data){
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
     });
+
 });
 
