@@ -224,14 +224,25 @@ url: "/api/result?project_id=3292&info=name::" + query + "&fulltextsearch=1",
 
             classification.append(labelsBig);
             var explanation = $("<p/>");
+            var explanation_large = $("<p/>");
+            var txt_summary;
             if (data[i]['info']['labelGlutenFree'] === 'yes') {
                 var n_people = data[i]['info']['labelGlutenFreeSummary']['count'];
+                var n_people_agree = data[i]['info']['labelGlutenFreeSummary']['freq'];
+                var pct = ((n_people_agree * 100)/n_people);
+                txt_summary =  n_people_agree + " de " + n_people + " (el " + pct + "% ) personas han identificado el sello sin gluten en el producto.";
             }
             if (data[i]['info']['ingredientsWheat'] === 'yes') {
                 var n_people = data[i]['info']['ingredientsWheatSummary']['count'];
+                var n_people_agree = data[i]['info']['ingredientsWheatSummary']['freq'];
+                var pct = ((n_people_agree * 100)/n_people);
+                txt_summary =  n_people_agree + " de " + n_people + " (" + pct + "%) personas han identificado trigo o trazas de trigo en el producto.";
             }
-            explanation.text(n_people + " personas han revisado este producto y lo han clasificado así");
+            var txt = "El producto ha sido clasificado así:";
+            explanation.text(txt);
+            explanation_large.text(txt_summary);
             classification.append(explanation);
+            classification.append(explanation_large);
 
             colData.append(classification);
 
