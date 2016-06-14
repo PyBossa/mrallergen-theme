@@ -1,4 +1,4 @@
-$.ajax({url:'/api/result'}).done(function(data){
+$.ajax({url:'/api/result?project_id=3292'}).done(function(data){
             if (window.matchMedia("(min-width: 768px)").matches) {
                 resultsDesktop(data);
             } 
