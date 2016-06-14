@@ -47,7 +47,7 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-md-10 col-md-offset-2">
-            <a href="#" id="back"><i class="fa  fa-lg fa-chevron-left"></i> Atrás</a>
+            <a href="#" id="back" class="back"><i class="fa  fa-lg fa-chevron-left"></i> Atrás</a>
         </div>
     </div>
 </div>
@@ -56,7 +56,6 @@
 
 {% block extrajs %}
 <script>
-console.log($("#search").attr("id"));
 $("input").keyup(function(event){
         if(event.keyCode == 13){
         $("#search").click();
@@ -87,15 +86,8 @@ $("#dropdown-all").off('click').on('click', function(){
         $("#n_results").text($(".div-product").length);
         }); 
 
-$("#back").off('click').on('click', function(){
-        $(".row.products").show();
-        $(".found").show();
-        $(".selected-product").hide();
-        var id = $("#back").data("close");
-        $("#" + id + "-big").hide();
-        });
 
-function search(queryData) {
+function search(queryData, showBig) {
         queryData = queryData.replace(/ +/g, ' ');
         queryData = queryData.replace(/^ /gi, "");
         queryData = queryData.replace(/ $/gi, "");
@@ -109,13 +101,12 @@ function search(queryData) {
 url: "/api/result?info=name::" + query + "&fulltextsearch=1",
 })
         .done(function( data ) {
+            var daniel = 0;
             if ( console && console.log ) {
-            console.log( "Sample of data:", data.slice( 0, 100 ) );
             $(".row.products").html("");
             $(".row.selected").remove();
-            $(".found").show();
             $("#n_results").text(data.length);
-            //$("#search_term").text($("input").val());
+            $("#search_term").text($("input").val());
             $("#search_term").text(queryData);
 
             if (data.length > 0) {
@@ -172,8 +163,9 @@ url: "/api/result?info=name::" + query + "&fulltextsearch=1",
             name.text(data[i]['info']['name']);
             product.append(divImg);
             col.append(product);
-            $(".row.products").append(col);
-
+            if (oneLabel) {
+                $(".row.products").append(col);
+            }
 
             // SELECTED PRODUCT CREATION
             var row = $("<div/>");
@@ -232,14 +224,25 @@ url: "/api/result?info=name::" + query + "&fulltextsearch=1",
 
             classification.append(labelsBig);
             var explanation = $("<p/>");
+            var explanation_large = $("<p/>");
+            var txt_summary;
             if (data[i]['info']['labelGlutenFree'] === 'yes') {
                 var n_people = data[i]['info']['labelGlutenFreeSummary']['count'];
+                var n_people_agree = data[i]['info']['labelGlutenFreeSummary']['freq'];
+                var pct = ((n_people_agree * 100)/n_people);
+                txt_summary =  n_people_agree + " de " + n_people + " (el " + pct + "%) personas han identificado el sello sin gluten en el producto.";
             }
             if (data[i]['info']['ingredientsWheat'] === 'yes') {
                 var n_people = data[i]['info']['ingredientsWheatSummary']['count'];
+                var n_people_agree = data[i]['info']['ingredientsWheatSummary']['freq'];
+                var pct = ((n_people_agree * 100)/n_people);
+                txt_summary =  n_people_agree + " de " + n_people + " (" + pct + "%) personas han identificado trigo o trazas de trigo en el producto.";
             }
-            explanation.text(n_people + " personas han revisado este producto y lo han clasificado así");
+            var txt = "El producto ha sido clasificado así:";
+            explanation.text(txt);
+            explanation_large.text(txt_summary);
             classification.append(explanation);
+            classification.append(explanation_large);
 
             colData.append(classification);
 
@@ -247,22 +250,45 @@ url: "/api/result?info=name::" + query + "&fulltextsearch=1",
             link.addClass("btn btn-primary");
             link.attr("href", data[i]['info']['url']);
             link.text("Ver en Soysuper");
-
+            var back2 = $("<a/>");
+            back2.addClass("back hidden-md hidden-lg");
+            back2.html('<i class="fa  fa-lg fa-chevron-left"></i> Atrás');
             colData.append(link);
+            colData.append(back2);
             row.append(colImg);
             row.append(colData);
             $(".selected-product > .container").append(row);
 
+            $(".back").off('click').on('click', function(){
+                    $(".row.products").show();
+                    $(".found").show();
+                    $(".selected-product").hide();
+                    var id = $(this).data("close");
+                    $("#" + id + "-big").hide();
+                    $(".results").show();
+                    });
+
             $(".product").off('click').on('click', function(event){
                     var id = $(this).attr("id");
+                    $(".results").hide();
                     $(".row.products").hide();
                     $(".found").hide();
                     $(".selected-product").show();
                     $("#" + id + "-big").show();
-                    $("#back").data("close", id);
+                    $(".back").data("close", id);
+                    window.scrollTo(0,0);
                     });
+
             }
 
+            if (!showBig) {
+                console.log("NoShoBig");
+                $(".found").show();
+            }
+            else {
+                console.log("ShowBig");
+                $(".found").hide();
+            }
 
             }
             else {
@@ -272,20 +298,32 @@ url: "/api/result?info=name::" + query + "&fulltextsearch=1",
             }
 
             }
+
+            if (showBig) {
+                $("#product-0").click();
+            }
+
         });
 
 }
 
 $("#search").off('click').on('click', function(){
     var data = $("input").val();
-    search(data);
+    search(data, false);
 });
+
+
 
 var params={};window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(str,key,value){params[key] = value;});
 if ('name' in params) {
     console.log(params['name']);
     var data = decodeURIComponent(params['name']);
-    search(data);
+    if ('showBig' in params) {
+        search(data, true);
+    }
+    else {
+        search(data, false);
+    }
 }
 </script>
 {% endblock %}

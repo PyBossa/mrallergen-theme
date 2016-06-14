@@ -43,12 +43,9 @@ section.home.projects {
         max-width: 100px;
     }
     
+    .name,
     .brand {
-        text-align: left;
-    }
-    .name {
         text-align:left;
-        text-overflow: ellipsis;
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 1; /* number of lines to show */
@@ -64,4 +61,28 @@ section.home.projects {
 .swiper-pagination-bullet-active {
     opacity: 1;
     background: #86B9D7 !important;
+}
+
+.swiper-button-next {
+    background-image: none !important;
+    right: 10px;
+    left: auto;
+}
+
+.swiper-button-prev{
+    background-image: none !important;
+    left: 10px;
+    right: auto;
+}
+
+.product {
+    background-color: white;
+}
+
+.img-vertical-home-centered {
+    height: auto !important;
+}
+
+.img-home {
+    max-height: 100px;
 }
