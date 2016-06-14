@@ -164,6 +164,7 @@ function resultsMobile(data) {
 
     // Create slides
     var swiper = new Swiper('.swiper-container', { 
+        loop: true,
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
     });
