@@ -1,4 +1,4 @@
-$.ajax({url:'/api/result'}).done(function(data){
+$.ajax({url:'/api/result?project_id=3292'}).done(function(data){
             if (window.matchMedia("(min-width: 768px)").matches) {
                 resultsDesktop(data);
             } 
@@ -168,3 +168,15 @@ function resultsMobile(data) {
         prevButton: '.swiper-button-prev',
     });
 }
+
+$("input").keyup(function(event){
+        if(event.keyCode == 13){
+        var data = $("input").val();
+        window.location.href = "/results?name=" + encodeURIComponent(data);
+        }
+        });
+
+$("#search").off('click').on('click', function(){
+    var data = $("input").val();
+    window.location.href = "/results?name=" + encodeURIComponent(data);
+});
