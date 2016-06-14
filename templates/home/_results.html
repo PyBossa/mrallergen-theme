@@ -19,6 +19,9 @@
         </div>
     </div>
 </section>
+<section class="numbers">
+    <h2>Últimos productos clasificados</h2>
+</section>
 <section class="found">
     <div class="container">
         <div class="row">
@@ -98,7 +101,7 @@ function search(queryData, showBig) {
         var query = queryData.replace(/ /g, '');
         }
         $.ajax({
-url: "/api/result?info=name::" + query + "&fulltextsearch=1",
+url: "/api/result?project_id=3292&info=name::" + query + "&fulltextsearch=1",
 })
         .done(function( data ) {
             var n_products_added = 0;
@@ -109,6 +112,8 @@ url: "/api/result?info=name::" + query + "&fulltextsearch=1",
             $("#search_term").text(queryData);
 
             if (data.length > 0) {
+                $(".numbers").remove();
+                $(".last-product").remove();
             for (i=0; i<data.length;i++) {
             var col = $("<div/>");
             col.addClass("col-xs-12 col-sm-6 col-md-4 col-lg-3 div-product");
@@ -261,6 +266,7 @@ url: "/api/result?info=name::" + query + "&fulltextsearch=1",
             $(".selected-product > .container").append(row);
 
             $(".back").off('click').on('click', function(){
+                    $(".last-product").remove();
                     $(".row.products").show();
                     $(".found").show();
                     $(".selected-product").hide();
@@ -271,6 +277,7 @@ url: "/api/result?info=name::" + query + "&fulltextsearch=1",
 
             $(".product").off('click').on('click', function(event){
                     var id = $(this).attr("id");
+                    $(".numbers").hide();
                     $(".results").hide();
                     $(".row.products").hide();
                     $(".found").hide();
@@ -327,5 +334,11 @@ if ('name' in params) {
     }
 }
 </script>
+
+{% assets filters="jsmin", output="js/gen/searchfront.min.js",
+    "js/searchfrontpage.js" %}
+    <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+{% endassets %}
+
 {% endblock %}
 

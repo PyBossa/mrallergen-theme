@@ -1,4 +1,4 @@
-$.ajax({url:'/api/result'}).done(function(data){
+$.ajax({url:'/api/result?project_id=3292'}).done(function(data){
             if (window.matchMedia("(min-width: 768px)").matches) {
                 resultsDesktop(data);
             } 
@@ -22,7 +22,7 @@ function resultsDesktop(data) {
         if (data[i]['info']) {
             var location = "/results?name=" + encodeURIComponent(data[i]['info']['name']) + "&showBig=true";
             var col = $("<div/>");
-            col.addClass("col-xs-12 col-sm-6 col-md-4 col-lg-3 div-product");
+            col.addClass("col-xs-12 col-sm-6 col-md-4 col-lg-3 div-product last-product");
             var product = $("<div/>", {"data-location": location });
             product.attr("id", "product-" + i);
             product.addClass("product");
@@ -95,7 +95,7 @@ function resultsMobile(data) {
             var slide = $("<div/>", {"data-location": location });
             var a = $("<a/>");
             var col = $("<div/>");
-            col.addClass("div-product");
+            col.addClass("div-product last-product");
             var col2 = $("<div/>");
             col2.addClass("col-xs-6 col-sm-6 col-md-4 col-lg-3 div-product");
             var brand = $("</p>");
