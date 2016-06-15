@@ -256,6 +256,7 @@ function search(queryData, showBig) {
             $("#product-0").click();
         }
 
+    $(".last-product").remove();
     });
 
 }
