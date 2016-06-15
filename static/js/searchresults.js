@@ -29,7 +29,7 @@ $("#dropdown-all").off('click').on('click', function(){
 }); 
 
 
-function search(queryData, showBig) {
+function search(queryData, showBig, back) {
     queryData = queryData.replace(/ +/g, ' ');
     queryData = queryData.replace(/^ /gi, "");
     queryData = queryData.replace(/ $/gi, "");
@@ -211,13 +211,18 @@ function search(queryData, showBig) {
                     $(".selected-product > .container").append(row);
 
                     $(".back").off('click').on('click', function(){
-                        $(".last-product").remove();
-                        $(".row.products").show();
-                        $(".found").show();
-                        $(".selected-product").hide();
-                        var id = $(this).data("close");
-                        $("#" + id + "-big").hide();
-                        $(".results").show();
+                        if (back === '') {
+                            $(".last-product").remove();
+                            $(".row.products").show();
+                            $(".found").show();
+                            $(".selected-product").hide();
+                            var id = $(this).data("close");
+                            $("#" + id + "-big").hide();
+                            $(".results").show();
+                        }
+                        else {
+                            window.location.href = back;
+                        }
                     });
 
                     $(".product").off('click').on('click', function(event){
@@ -263,7 +268,7 @@ function search(queryData, showBig) {
 
 $("#search").off('click').on('click', function(){
     var data = $("input").val();
-    search(data, false);
+    search(data, false, '');
 });
 
 
@@ -273,10 +278,15 @@ if ('name' in params) {
     console.log(params['name']);
     var data = decodeURIComponent(params['name']);
     if ('showBig' in params) {
-        search(data, true);
+        if ('back' in params) {
+            search(data, true, decodeURIComponent(params['back']));
+        }
+        else {
+            search(data, true, '');
+        }
     }
     else {
-        search(data, false);
+        search(data, false, '');
     }
 }
 
