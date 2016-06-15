@@ -21,7 +21,7 @@ if ((window.location['pathname'] === '/') || ((window.location['pathname'] === '
         var total = 0;
         for (i=0; i<data.length;i++) {
             if (data[i]['info']) {
-                var location = "/results?name=" + encodeURIComponent(data[i]['info']['name']) + "&showBig=true";
+                var location = "/results?name=" + encodeURIComponent(data[i]['info']['name']) + "&showBig=true&back=" + encodeURIComponent(window.location['pathname']);
                 var col = $("<div/>");
                 col.addClass("col-xs-12 col-sm-6 col-md-4 col-lg-3 div-product last-product");
                 var product = $("<div/>", {"data-location": location });
