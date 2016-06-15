@@ -170,7 +170,7 @@ function resultsMobile(data) {
     });
 }
 
-$("input").keyup(function(event){
+$("#homesearch").keyup(function(event){
         if(event.keyCode == 13){
         var data = $("input").val();
         window.location.href = "/results?name=" + encodeURIComponent(data);
