@@ -1,5 +1,5 @@
 if ((window.location['pathname'] === '/') || ((window.location['pathname'] === '/results') && (window.location['search'] === ''))) {
-    $.ajax({url:'/api/result'}).done(function(data){
+    $.ajax({url:'/api/result?desc=true'}).done(function(data){
                 if (window.matchMedia("(min-width: 768px)").matches) {
                     resultsDesktop(data);
                 } 
