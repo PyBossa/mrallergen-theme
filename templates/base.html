@@ -33,6 +33,7 @@
 
 
     <!-- Le styles -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/animate.min.css')}}">
     {% assets filters="libsass", output="css/gen/pybossa.min.css",
               depends="sass/**/*.scss", 
               "sass/_pybossa.scss"%}
