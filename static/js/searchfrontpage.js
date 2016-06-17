@@ -1,11 +1,25 @@
+var search_words = [];
 if ((window.location['pathname'] === '/') || ((window.location['pathname'] === '/results') && (window.location['search'] === ''))) {
     $.ajax({url:'/api/result?desc=true'}).done(function(data){
                 if (window.matchMedia("(min-width: 768px)").matches) {
                     resultsDesktop(data);
+                    if (window.location['pathname'] === '/') {
+                        updatePlaceholder("#homesearch");
+                    }
+                    else {
+                        updatePlaceholder("input");
+                    }
                 } 
                 
                 else { 
                     resultsMobile(data);
+                    if (window.location['pathname'] === '/') {
+                        updatePlaceholder("#homesearch");
+                    }
+                    else {
+                        updatePlaceholder("input");
+                    }
+
                 }
     });
     
@@ -80,6 +94,8 @@ if ((window.location['pathname'] === '/') || ((window.location['pathname'] === '
                 if (oneLabel) {
                     total += 1;
                     $(".row.products").append(col);
+                    //search_words.push(data[i]['info']['brand']);
+                    search_words.push(getWords(data[i]['info']['name']));
                 }
                 if (total === 4) {
                     break;
@@ -158,6 +174,8 @@ if ((window.location['pathname'] === '/') || ((window.location['pathname'] === '
                 });
                 if (oneLabel) {
                     $(".swiper-wrapper").append(slide);
+                    //search_words.push(data[i]['info']['brand']);
+                    search_words.push(getWords(data[i]['info']['name']));
                 }
     
             }
@@ -182,4 +200,15 @@ if ((window.location['pathname'] === '/') || ((window.location['pathname'] === '
         var data = $("input").val();
         window.location.href = "/results?name=" + encodeURIComponent(data);
     });
+
+    function getWords(str) {
+        return str.split(/\s+/).slice(0,5).join(" ");
+    }
+
+    function updatePlaceholder(id) {
+        var string = search_words[Math.floor(Math.random()*search_words.length)];
+        $(id).attr("placeholder", "Busca por ejemplo: " + string);
+    }
 }
+
+
