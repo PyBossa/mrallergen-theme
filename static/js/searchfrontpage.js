@@ -92,7 +92,7 @@ if ((window.location['pathname'] === '/') || ((window.location['pathname'] === '
     function resultsMobile(data) {
         for(i=0;i<data.length;i++) {
             if (data[i]['info']) {
-                var location = "/results?name=" + encodeURIComponent(data[i]['info']['name']) + "&showBig=true";
+                var location = "/results?name=" + encodeURIComponent(data[i]['info']['name']) + "&showBig=true&back=" + encodeURIComponent(window.location['pathname']);
                 var slide = $("<div/>", {"data-location": location });
                 var a = $("<a/>");
                 var col = $("<div/>");
