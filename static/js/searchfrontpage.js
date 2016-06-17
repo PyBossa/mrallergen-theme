@@ -92,6 +92,7 @@ if ((window.location['pathname'] === '/') || ((window.location['pathname'] === '
                 });
                 col.append(product);
                 if (oneLabel) {
+                    col.addClass("animated fadeIn")
                     total += 1;
                     $(".row.products").append(col);
                     //search_words.push(data[i]['info']['brand']);
