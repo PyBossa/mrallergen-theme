@@ -5,13 +5,13 @@
 
 {% block content %}
 <link rel="stylesheet" href="{{url_for('static', filename='css/swiper.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='css/ol.css')}}">
 {% assets filters="jsmin", output="js/gen/full.min.js",
           "js/vendor/jquery-2.2.3.js", "js/vendor/bootstrap.js", 
           "js/vendor/modernizr.min.js", "js/flashmessages.js", 
           "js/vendor/cookieconsent.min.js",
           "js/vendor/swiper.jquery.js",
-          "js/vendor/magnifik.js",
-          "js/vendor/hammer.min.js",
+          "js/vendor/ol.js",
           "js/pybossa/pybossa.js",
           "js/pybossa-player/dist/pybossa-player.min.js"
           %}
