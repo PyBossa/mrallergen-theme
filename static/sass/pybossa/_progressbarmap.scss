@@ -1,0 +1,9 @@
+.progress-map {
+    position: absolute;
+    left: 0;
+    height: 4px;
+    background: rgba(0, 60, 136, 0.4);
+    background: $brand-primary;
+    width: 0%;
+    transition: width 250ms;
+}
