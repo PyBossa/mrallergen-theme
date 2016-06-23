@@ -1,0 +1,16 @@
+.ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.ink {
+    display: block; position: absolute;
+    background: hsl(180, 40%, 80%);
+    border-radius: 100%;
+    transform: scale(0);
+}
+
+.ink.animate {animation: ripple 0.65s linear;}
+@keyframes ripple {
+    100% {opacity: 0; transform: scale(2.5);}
+}
