@@ -30,6 +30,8 @@ $("#dropdown-all").off('click').on('click', function(){
 
 
 function search(queryData, showBig, back) {
+    var regex_non_words = XRegExp("[^\\p{L}\\s\\d]", "g");
+    queryData = XRegExp.replace(queryData, regex_non_words, "");
     queryData = queryData.replace(/ +/g, ' ');
     queryData = queryData.replace(/^ /gi, "");
     queryData = queryData.replace(/ $/gi, "");
