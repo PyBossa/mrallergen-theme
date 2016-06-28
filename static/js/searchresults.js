@@ -30,7 +30,10 @@ $("#dropdown-all").off('click').on('click', function(){
 
 
 function search(queryData, showBig, back) {
-    queryData = queryData.replace(/ +/g, ' ');
+    var regex_non_words = XRegExp("[^\\p{L}\\s\\d]", "g");
+    queryData = XRegExp.replace(queryData, regex_non_words, " ");
+    var regex_spaces = XRegExp("\\p{Z}+", "g");
+    queryData = XRegExp.replace(queryData, regex_spaces, " ");
     queryData = queryData.replace(/^ /gi, "");
     queryData = queryData.replace(/ $/gi, "");
     if ((queryData.match(/ /g) || []).length >= 1) {
