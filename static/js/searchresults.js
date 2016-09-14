@@ -28,6 +28,19 @@ $("#dropdown-all").off('click').on('click', function(){
     $("#n_results").text($(".div-product").length);
 }); 
 
+function confidenceTxt(n_people) {
+    if (n_people < 33) {
+        txt_confidence = '¡Cuidado! Sólo han revisado este producto ' + n_people + ' personas.';
+    }
+    if (n_people > 33 && n_people < 66) {
+        txt_confidence = '¡No está nada mal! Al menos ' + n_people + ' personas han revisado el producto.';
+    }
+    if (n_people > 66) {
+        txt_confidence = '¡GENIAL! Más de' + n_people + ' personas han revisado el producto.';
+    }
+    return txt_confidence;
+}
+
 
 function search(queryData, showBig, back) {
     var regex_non_words = XRegExp("[^\\p{L}\\s\\d]", "g");
@@ -172,22 +185,28 @@ function search(queryData, showBig, back) {
 
                     classification.append(labelsBig);
                     var explanation = $("<p/>");
+                    var confidence = $("<p/>");
                     var explanation_large = $("<p/>");
                     var txt_summary;
+                    var txt_confidence;
                     if (data[i]['info']['labelGlutenFree'] === 'yes') {
                         var n_people = data[i]['info']['labelGlutenFreeSummary']['count'];
                         var n_people_agree = data[i]['info']['labelGlutenFreeSummary']['freq'];
                         var pct = ((n_people_agree * 100)/n_people);
-                        txt_summary =  n_people_agree + " de " + n_people + " (el " + pct + "%) personas han identificado el sello sin gluten en el producto.";
+                        txt_summary =  n_people_agree + " de " + n_people + " personas (el " + pct + "%) han identificado el sello sin gluten en el producto.";
+                        txt_confidence = confidenceTxt(n_people);
                     }
                     if (data[i]['info']['ingredientsWheat'] === 'yes') {
                         var n_people = data[i]['info']['ingredientsWheatSummary']['count'];
                         var n_people_agree = data[i]['info']['ingredientsWheatSummary']['freq'];
                         var pct = ((n_people_agree * 100)/n_people);
-                        txt_summary =  n_people_agree + " de " + n_people + " (" + pct + "%) personas han identificado trigo o trazas de trigo en el producto.";
+                        txt_summary =  n_people_agree + " de " + n_people + " personas (el " + pct + "%) han identificado trigo o trazas de trigo en el producto.";
+
+                        txt_confidence = confidenceTxt(n_people);
                     }
                     var txt = "El producto ha sido clasificado así:";
                     explanation.text(txt);
+                    confidence.text(txt_confidence);
                     explanation_large.text(txt_summary);
                     classification.append(explanation);
                     classification.append(explanation_large);
