@@ -209,6 +209,7 @@ function search(queryData, showBig, back) {
                     confidence.text(txt_confidence);
                     explanation_large.text(txt_summary);
                     classification.append(explanation);
+                    classification.append(confidence);
                     classification.append(explanation_large);
 
                     colData.append(classification);
