@@ -220,3 +220,13 @@
     display: block;
     margin-left: 153px;
 }
+
+.navbar-toggle.signin {
+    border: 0px;
+}
+
+.navbar-toggle.signin a {
+    color: #2E4B63;
+    text-transform: uppercase;
+    font-weight: 600
+}

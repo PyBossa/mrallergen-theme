@@ -3,9 +3,15 @@
         {% if active_page != 'presenter' %}
         <div class="navbar-header">
             <a class="navbar-brand" href="{{ url_for('home.home') }}">Sr.<span> Alérgeno</span><span id="beta">beta</span></a>
+            {% if current_user.is_authenticated() %}
             <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-                {{_('Menu')}}
+                {{_('Menú')}}
             </button>
+            {% else %}
+            <button class="navbar-toggle signin">
+                <a href="{{ url_for('account.signin') }}"> {{ _('Iniciar sesión') }}</a>
+            </button>
+            {% endif %}
         </div>
         <div class="navbar-collapse collapse" id="navbar-main">
             <ul class="nav navbar-nav">
