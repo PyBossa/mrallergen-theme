@@ -68,8 +68,33 @@ section.account.update.apikey {
     background-color: #0E1B25;
 }
 
-.avatar-profile {
+.avatar-profile,
+.centered {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.centered {
+    flex-direction: column;
+}
+
+.medal {
+    max-width: 120px;
+}
+
+.medal-fade {
+    opacity: 0.3;
+}
+
+.medal-title {
+    padding-top: 5px;
+    padding-bottom: 20px;
+    font-weight: bold;
+}
+
+@media(min-width: 415px) {
+    .centered {
+        display: block
+    }
 }
