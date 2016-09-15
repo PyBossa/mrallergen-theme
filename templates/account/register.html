@@ -8,7 +8,7 @@
             <div class="col-md-offset-2 col-md-8">
                 <h1>{{ _('Crear una cuenta') }}</h1>
 
-                {{ render_form(form, action_url=url_for('account.register'), btn_class="btn btn-primary btn-block" )}}
+                {{ render_form(form, action_url=url_for('account.register'), btn_class="btn btn-primary btn-block", action_text="Crear cuenta" )}}
                 <p class="text-center text-sm" style="margin-top:5px;">
                 <span class="label label-warning"><i class="fa fa-bullhorn"></i> {{ _('Note') }}</span> 
                 {{ _('Recuerda que pulsando en el botón de aquí arriba aceptas nuestros ') }} 
