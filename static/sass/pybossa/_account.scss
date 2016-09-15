@@ -67,3 +67,9 @@ section.account.update.apikey {
 .pagination > .active > span:focus {
     background-color: #0E1B25;
 }
+
+.avatar-profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

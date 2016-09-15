@@ -47,6 +47,7 @@
             </section>
             {% endif %}
 
+            {% if current_user.admin %}
             <section class="account update external-services">
                 <h2>External Services</h2>
                 <form method="post" action="{{ url_for('account.update_profile', name=current_user.name) }}">
@@ -67,6 +68,7 @@
                     </div>
                 </form>
             </section>
+            {% endif %}
         </div>
     </div>
 </section>
