@@ -11,7 +11,7 @@
                 <p class="text-sm text-center" style="margin-top: 5px;">
                 <a href="{{ url_for('account.forgot_password') }}">{{ _('¿Has olvidado tu contraseña?') }}</a>
                 </p>
-                <p class="text-center">{{_('¿No tienes cuenta?')}} <a href="{{ url_for('account.register') }}">{{_('Crear una cuenta gratis')}}</a> <br/>{{_('o inicia sesión con')}}</p>
+                <p class="text-center">{{_('¿No tienes cuenta?')}} <a href="{{ url_for('account.register') }}">{{_('Crea una gratis')}}</a></p>
 
                 {% if next is not none%}
                 {% if auth.twitter %}
@@ -34,12 +34,6 @@
                 <a href="{{ url_for('google.login') }}" class="btn btn-warning btn-ssnn"><i class="fa fa-google-plus"></i> {{ _('Google') }}</a>
                 {% endif %}
                 {% endif %}
-                <p>
-                <span class="label label-warning"><i class="fa fa-bullhorn"></i> {{ _('Aviso') }}</span>
-                {{ _('Haciendo click') }} <strong>{{ _('en el botón de iniciar sesión') }}</strong> {{ _('aceptas nuestros') }} <a href={{url_for('help.tos')}}>{{ _('términos de uso') }}</a> {{ _('y') }}
-                <a href={{data_use | safe}}>{{ _('datos') }}</a>.
-
-                </p>
         </div>
     </section>
 {% endblock %}
