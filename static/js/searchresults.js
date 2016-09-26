@@ -246,60 +246,34 @@ function search(queryData, showBig, back) {
                     legend.addClass("legend");
                     legend.append(colors);
 
-                    var svg = $("<svg/>");
-                    svg.attr("width", "30");
-                    svg.attr("height", "30");
-                    svg.attr("viewBox", "0 0 30 30");
-                    svg.attr("xmlns", "http://www.w3.org/2000/svg");
 
-                    var rect = $("<rect/>");
-                    rect.attr("x", "0");
-                    rect.attr("y", "0");
-                    rect.attr("height", "30");
-                    rect.attr("width", "30");
-
-                    var lowRect = $.extend({}, rect);
-                    lowRect.addClass("low");
-                    var lowSvg = $.extend({}, svg);
-
-                    // if (n_people < 30 ) {
-                    //     lowRect.addClass("chosen");
-                    // }
-                    lowSvg.append(lowRect);
-                    low.append(lowSvg);
-                    var txt = $("<p/>");
-                    txt.addClass("small");
-                    txt.text("BAJO");
-                    var val = $("<p/>");
-                    val.addClass("small");
-                    val.text("<30");
-                    low.append(txt);
-                    low.append(val);
-
-
-                    $("column").html($("column").html());
-
-                    //low.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="low" x="0" y="0" width="30" height="30"/></svg><p class="small">BAJO</p><p class="small"><30</p>');
+                    if (n_people < 30) {
+                    low.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="low chosen" x="0" y="0" width="30" height="30"/></svg><p class="small">BAJO</p><p class="small"><30</p>');
+                    }
+                    else {
+                    low.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="low" x="0" y="0" width="30" height="30"/></svg><p class="small">BAJO</p><p class="small"><30</p>');
+                    }
   
-
+                    if (n_people > 30 && n_people < 70) {
+                    mid.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="mid chosen" x="0" y="0" width="30" height="30"/></svg><p class="small">MEDIO</p><p class="small"><31 - 70></p>');
+                    }
+                    else {
                     mid.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="mid" x="0" y="0" width="30" height="30"/></svg><p class="small">MEDIO</p><p class="small"><31 - 70></p>');
+                    }
+                    }
 
+                    if (n_people > 71) {
+                    high.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="high chosen" x="0" y="0" width="30" height="30"/></svg><p class="small">ALTO</p><p class="small">>71</p>');
+                    }
+                    else {
                     high.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="high" x="0" y="0" width="30" height="30"/></svg><p class="small">ALTO</p><p class="small">>71</p>');
+                    }
 
 
                     // classification.append(explanation);
                     // classification.append(confidence);
                     // classification.append(explanation_large);
                     //
-                    console.log($(".low").length);
-                    if (n_people < 30) {
-                        console.log(n_people);
-                        $(".low").addClass("chosen");
-                    }
-
-                    if (n_people > 30 && n_people < 70) {
-                        $(".mid").addClass("chosen");
-                    }
 
                     if (n_people > 71) {
                         $(".high").addClass("chosen");
