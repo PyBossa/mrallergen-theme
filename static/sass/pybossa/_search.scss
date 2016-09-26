@@ -254,6 +254,10 @@ $input-height: 50px;
                 align-items: center;
             }
 
+            .low, .mid, .high {
+                stroke-width: 4px;
+            }
+
             .low  {
                 stroke: red;
                 fill: white;
@@ -264,7 +268,7 @@ $input-height: 50px;
             }
 
             .mid {
-                stroke: yellow;
+                stroke: #ff9900;
                 fill: white;
             }
 
