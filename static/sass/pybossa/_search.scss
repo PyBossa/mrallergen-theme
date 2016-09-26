@@ -183,8 +183,8 @@ $input-height: 50px;
     .classification {
         border: 2px solid;
         padding-top: 5px;
-        padding-left: 10px;
-        padding-right: 10px;
+        //padding-left: 10px;
+        //padding-right: 10px;
         border-radius: 3px;
         display: flex;
         align-content: center;
@@ -192,6 +192,7 @@ $input-height: 50px;
         flex-direction: column;
 
         .bottom {
+            margin-top: 2px solid;
             margin-top: 10px;
             width: 100%;
             display: flex;
@@ -202,11 +203,12 @@ $input-height: 50px;
         .onefold {
             flex-grow: 1;
             text-transform: uppercase;
-            align-self: flex-start;
+            //align-self: flex-start;
             display: flex;
             align-content: center;
             align-items: center;
             flex-direction: column;
+            justify-content: space-around;
 
             .big {
                 font-size: 54px;
@@ -216,6 +218,7 @@ $input-height: 50px;
 
         .twofolds {
             flex-grow: 2;
+            margin-left: 2px solid;
 
             .legend {
                 display: flex;
