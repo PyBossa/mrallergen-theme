@@ -259,6 +259,7 @@ function search(queryData, showBig, back) {
                     // classification.append(confidence);
                     // classification.append(explanation_large);
                     //
+                    console.log($(".low").length);
                     if (n_people < 30) {
                         console.log(n_people);
                         $(".low").addClass("chosen");
