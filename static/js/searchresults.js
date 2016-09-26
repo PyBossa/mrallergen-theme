@@ -185,7 +185,13 @@ function search(queryData, showBig, back) {
                     }
 
                     topDiv.append(labelsBig);
+                    var leftDiv = $("<div/>");
+                    var rightDiv = $("<div/>");
+
                     classification.append(topDiv);
+                    classification.append(leftDiv);
+                    classification.append(rightDiv);
+
                     var explanation = $("<p/>");
                     var confidence = $("<p/>");
                     var explanation_large = $("<p/>");
