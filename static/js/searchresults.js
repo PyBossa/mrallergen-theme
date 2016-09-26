@@ -85,7 +85,7 @@ function search(queryData, showBig, back) {
                         oneLabel = true;
                         var iconGlutenFree = $("<img>");
                         iconGlutenFree.attr("src", "/static/img/green-gluten.svg");
-                        labels.text(" Sin gluten");
+                        labels.text(" sin gluten");
                         labels.prepend(iconGlutenFree);
                         labels.addClass("gluten-free");
                         col.addClass("gluten-free ");
@@ -96,7 +96,7 @@ function search(queryData, showBig, back) {
                         oneLabel = true;
                         var iconWheat = $("<img>");
                         iconWheat.attr("src", "/static/img/red-gluten.svg");
-                        labels.text(" Trigo o trazas");
+                        labels.text(" con trigo o trazas");
                         labels.prepend(iconWheat);
                         labels.addClass("wheat");
                         col.addClass("wheat");
