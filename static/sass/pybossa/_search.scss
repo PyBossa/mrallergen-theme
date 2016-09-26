@@ -215,6 +215,10 @@ $input-height: 50px;
 
         .twofolds {
             flex-grow: 2;
+
+            .legend {
+                display: flex;
+            }
         }
     }
 }
