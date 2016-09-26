@@ -228,9 +228,26 @@ function search(queryData, showBig, back) {
                     var text = "Clasificado por"
 
                     leftDiv.html("<p>Clasificado por</p><p class='big'>" + n_people + "</p><p>usuarios</p>");
-                    rightDiv.html("<p>Producto clasificado</p><p style='text-transform: uppercase'>" + txtClassification + " por el</p><p>" + pct + "% " + txt_summary + "</p>");
+                    rightDiv.html("<p>Producto clasificado</p><p style='text-transform: uppercase'>" + txtClassification + " por el</p><p>" + pct + "% " + txt_summary + "</p><p>Nivel de confianza</div>");
 
+                    var legend =$("<div/>");
+                    var low =$("<div/>");
+                    var mid =$("<div/>");
+                    var high=$("<div/>");
+                    legend.append(low);
+                    legend.append(mid);
+                    legend.append(high);
+                    legend.addClass("legend");
 
+                    low.html('<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="100" height="100"/></svg><p><30</p>');
+  
+
+                    mid.html('<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="100" height="100"/></svg><p><31 - 70></p>');
+
+                    high.html('<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="100" height="100"/></svg><p>71</p>');
+</svg>")
+
+                    rightDiv.append(legend);
 
                     classification.append(explanation);
                     classification.append(confidence);
