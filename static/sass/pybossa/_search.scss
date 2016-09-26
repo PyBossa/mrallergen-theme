@@ -219,6 +219,25 @@ $input-height: 50px;
             .legend {
                 display: flex;
             }
+
+            .column {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .low  {
+                stroke: red;
+            }
+
+            .mid {
+                stroke: yellow;
+            }
+
+            .high {
+                stroke: #94CA55
+            }
         }
     }
 }
