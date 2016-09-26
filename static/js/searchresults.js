@@ -246,8 +246,28 @@ function search(queryData, showBig, back) {
                     legend.addClass("legend");
                     legend.append(colors);
 
+                    var svg = $("<svg/>");
+                    svg.attr("width", "30");
+                    svg.attr("height", "30");
+                    svg.attr("viewBox", "0 0 30 30");
+                    svg.attr("xmlns", "http://www.w3.org/2000/svg");
 
-                    low.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="low" x="0" y="0" width="30" height="30"/></svg><p class="small">BAJO</p><p class="small"><30</p>');
+                    var rect = $("<rect/>");
+                    rect.attr("x", "0");
+                    rect.attr("y", "0");
+                    rect.attr("height", "30");
+                    rect.attr("width", "30");
+
+                    var lowRect = $.extend({}, rect);
+                    lowRect.addClass("low");
+                    var lowSvg = $.extend({}, svg);
+
+                    if (n_people < 30 ) {
+                        lowRect.addClass("chosen");
+                    }
+                    lowSvg.append(lowRect);
+                    low.append(lowSvg);
+                    //low.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="low" x="0" y="0" width="30" height="30"/></svg><p class="small">BAJO</p><p class="small"><30</p>');
   
 
                     mid.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="mid" x="0" y="0" width="30" height="30"/></svg><p class="small">MEDIO</p><p class="small"><31 - 70></p>');
