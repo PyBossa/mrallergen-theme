@@ -209,26 +209,26 @@ function search(queryData, showBig, back) {
                         var n_people_agree = data[i]['info']['labelGlutenFreeSummary']['freq'];
                         var pct = ((n_people_agree * 100)/n_people);
                         //txt_summary =  n_people_agree + " de " + n_people + " personas (el " + pct + "%) han identificado el sello sin gluten en el producto.";
-                        txt_summary =  n_people_agree + " de " + n_people + " usuarios"; 
+                        txt_summary =  "(" + n_people_agree + " de " + n_people + " usuarios)"; 
                         txt_confidence = confidenceTxt(n_people);
                     }
                     if (data[i]['info']['ingredientsWheat'] === 'yes') {
                         var n_people = data[i]['info']['ingredientsWheatSummary']['count'];
                         var n_people_agree = data[i]['info']['ingredientsWheatSummary']['freq'];
                         var pct = ((n_people_agree * 100)/n_people);
-                        txt_summary =  n_people_agree + " de " + n_people + " usuarios"; 
+                        txt_summary =  "(" + n_people_agree + " de " + n_people + " usuarios)"; 
 
                         txt_confidence = confidenceTxt(n_people);
                     }
                     var txt = "El producto ha sido clasificado así:";
-                    explanation.text(txt);
-                    confidence.text(txt_confidence);
-                    explanation_large.text(txt_summary);
+                    //explanation.text(txt);
+                    //confidence.text(txt_confidence);
+                    //explanation_large.text(txt_summary);
 
                     var text = "Clasificado por"
 
                     leftDiv.html("<p>Clasificado por</p><p class='big'>" + n_people + "</p><p>usuarios</p>");
-                    rightDiv.html("<p>Producto clasificado</p><pstyle='text-transform: uppercase'>" + txtClassification + " por el</p><p>" + pct + "% " + txt_confidence + "</p>");
+                    rightDiv.html("<p>Producto clasificado</p><p style='text-transform: uppercase'>" + txtClassification + " por el</p><p>" + pct + "% " + txt_confidence + "</p>");
 
 
 
