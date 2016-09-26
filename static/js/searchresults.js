@@ -228,19 +228,22 @@ function search(queryData, showBig, back) {
                     var text = "Clasificado por"
 
                     leftDiv.html("<p>Clasificado por</p><p class='big'>" + n_people + "</p><p>usuarios</p>");
-                    rightDiv.html("<p>Producto clasificado</p><p style='text-transform: uppercase'>" + txtClassification + " por el</p><p>" + pct + "% " + txt_summary + "</p><p>Nivel de confianza</div>");
+                    rightDiv.html("<p>Producto clasificado</p><p style='text-transform: uppercase'>" + txtClassification + " por el</p><p>" + pct + "% " + txt_summary + "</p></div>");
 
                     var legend =$("<div/>");
+                    legend.html("<div><p>Nivel de confianza</p></div>");
+                    var colors =$("<div/>");
                     var low =$("<div/>");
                     var mid =$("<div/>");
                     var high=$("<div/>");
                     low.addClass("column");
                     mid.addClass("column");
                     high.addClass("column");
-                    legend.append(low);
-                    legend.append(mid);
-                    legend.append(high);
+                    colors.append(low);
+                    colors.append(mid);
+                    colors.append(high);
                     legend.addClass("legend");
+                    legend.append(colors);
 
 
                     low.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="low" x="0" y="0" width="30" height="30"/></svg><p class="small"><30</p>');
