@@ -262,11 +262,20 @@ function search(queryData, showBig, back) {
                     lowRect.addClass("low");
                     var lowSvg = $.extend({}, svg);
 
-                    if (n_people < 30 ) {
-                        lowRect.addClass("chosen");
-                    }
+                    // if (n_people < 30 ) {
+                    //     lowRect.addClass("chosen");
+                    // }
                     lowSvg.append(lowRect);
                     low.append(lowSvg);
+                    var txt = $("<p/>");
+                    txt.addClass("small");
+                    txt.text("BAJO");
+                    var val = $("<p/>");
+                    val.addClass("small");
+                    val.text("<30");
+                    low.append(txt);
+                    low.append(val);
+
                     //low.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="low" x="0" y="0" width="30" height="30"/></svg><p class="small">BAJO</p><p class="small"><30</p>');
   
 
