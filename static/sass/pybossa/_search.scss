@@ -194,9 +194,15 @@ $input-height: 50px;
         .onefold {
             flex-grow: 1;
             text-transform: uppercase;
+            align-self: flex-start;
+            display: flex;
+            align-content: center;
+            align-items: center;
+            flex-direction: column;
 
             .big {
-                font-size: 24px;
+                font-size: 54px;
+                font-weight: bold;
             }
         }
 
