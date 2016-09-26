@@ -227,8 +227,8 @@ function search(queryData, showBig, back) {
 
                     var text = "Clasificado por"
 
-                    leftDiv.html("<p>Clasificado por</p><p class='big'>" + n_people + "</p><p>usuarios</p>");
-                    rightDiv.html("<p>Etiquetado " + txtClassification + "</p><p> por el " + pct + "% de los usuarios</p><p>" + txt_summary + "</p></div>");
+                    leftDiv.html("<p>Clasificado por</p><p class='big'>" + n_people + "</p><p>personas</p>");
+                    rightDiv.html("<p>Etiquetado " + txtClassification + "</p><p> por el " + pct + "%</p><p>" + txt_summary + "</p></div>");
 
                     var legend =$("<div/>");
                     legend.html("<div><p>Nivel de confianza</p></div>");
