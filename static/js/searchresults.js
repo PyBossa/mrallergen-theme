@@ -228,7 +228,7 @@ function search(queryData, showBig, back) {
                     var text = "Clasificado por"
 
                     leftDiv.html("<p>Clasificado por</p><p class='big'>" + n_people + "</p><p>usuarios</p>");
-                    rightDiv.html("<p>Producto clasificado</p><p style='text-transform: uppercase'>" + txtClassification + " por el</p><p>" + pct + "% " + txt_confidence + "</p>");
+                    rightDiv.html("<p>Producto clasificado</p><p style='text-transform: uppercase'>" + txtClassification + " por el</p><p>" + pct + "% " + txt_summary + "</p>");
 
 
 
