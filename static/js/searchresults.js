@@ -260,7 +260,6 @@ function search(queryData, showBig, back) {
                     else {
                     mid.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="mid" x="0" y="0" width="30" height="30"/></svg><p class="small">MEDIO</p><p class="small"><31 - 70></p>');
                     }
-                    }
 
                     if (n_people > 71) {
                     high.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="high chosen" x="0" y="0" width="30" height="30"/></svg><p class="small">ALTO</p><p class="small">>71</p>');
