@@ -252,9 +252,9 @@ function search(queryData, showBig, back) {
 
                     rightDiv.append(legend);
 
-                    classification.append(explanation);
-                    classification.append(confidence);
-                    classification.append(explanation_large);
+                    // classification.append(explanation);
+                    // classification.append(confidence);
+                    // classification.append(explanation_large);
 
                     colData.append(classification);
 
