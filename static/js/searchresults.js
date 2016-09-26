@@ -242,6 +242,7 @@ function search(queryData, showBig, back) {
                     colors.append(low);
                     colors.append(mid);
                     colors.append(high);
+                    colors.addClass("colors");
                     legend.addClass("legend");
                     legend.append(colors);
 
