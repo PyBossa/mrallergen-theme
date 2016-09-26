@@ -234,9 +234,9 @@ function search(queryData, showBig, back) {
                     var low =$("<div/>");
                     var mid =$("<div/>");
                     var high=$("<div/>");
-                    low.addClas("column");
-                    mid.addClas("column");
-                    high.addClas("column");
+                    low.addClass("column");
+                    mid.addClass("column");
+                    high.addClass("column");
                     legend.append(low);
                     legend.append(mid);
                     legend.append(high);
