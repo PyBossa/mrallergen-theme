@@ -186,7 +186,9 @@ function search(queryData, showBig, back) {
 
                     topDiv.append(labelsBig);
                     var leftDiv = $("<div/>");
+                    leftDiv.addClass("onefold")
                     var rightDiv = $("<div/>");
+                    rightDiv.addClass("twofolds")
 
                     classification.append(topDiv);
                     classification.append(leftDiv);
@@ -216,6 +218,12 @@ function search(queryData, showBig, back) {
                     explanation.text(txt);
                     confidence.text(txt_confidence);
                     explanation_large.text(txt_summary);
+
+                    var text = "Clasificado por"
+
+                    leftDiv.html("<p>Clasificado por</p><p class='big'>" + n_people + "</p><p>usuarios</p>");
+
+
                     classification.append(explanation);
                     classification.append(confidence);
                     classification.append(explanation_large);

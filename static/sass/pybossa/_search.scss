@@ -190,6 +190,19 @@ $input-height: 50px;
         align-content: center;
         align-items: center;
         flex-direction: column;
+
+        .onefold {
+            flex-grow: 1;
+            text-transform: uppercase;
+
+            .big {
+                font-size: 24px;
+            }
+        }
+
+        .twofolds {
+            flex-grow: 2;
+        }
     }
 }
 
