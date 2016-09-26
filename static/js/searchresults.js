@@ -160,6 +160,8 @@ function search(queryData, showBig, back) {
 
                     var classification = $("<div/>");
                     var topDiv = $("<div/>");
+                    var bottomDiv = $("<div/>");
+                    bottomDiv.addClass("bottom");
                     classification.addClass("classification");
                     var labelsBig = $("</p>");
                     if (data[i]['info']['labelGlutenFree'] === 'yes') {
@@ -191,10 +193,11 @@ function search(queryData, showBig, back) {
                     leftDiv.addClass("onefold")
                     var rightDiv = $("<div/>");
                     rightDiv.addClass("twofolds")
+                    bottomDiv.append(leftDiv);
+                    bottomDiv.append(rightDiv);
 
                     classification.append(topDiv);
-                    classification.append(leftDiv);
-                    classification.append(rightDiv);
+                    classification.append(bottomDiv);
 
                     var explanation = $("<p/>");
                     var confidence = $("<p/>");
