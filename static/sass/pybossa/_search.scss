@@ -253,7 +253,7 @@ $input-height: 50px;
                 fill: white;
             }
 
-            .low .selected {
+            .low.selected {
                 fill: red;
             }
 
@@ -262,7 +262,7 @@ $input-height: 50px;
                 fill: white;
             }
 
-            .mid .selected {
+            .mid.selected {
                 fill: yellow;
             }
 
@@ -271,7 +271,7 @@ $input-height: 50px;
                 fill: white;
             }
 
-            .high .selected {
+            .high.selected {
                 fill: #94CA55;
             }
 
