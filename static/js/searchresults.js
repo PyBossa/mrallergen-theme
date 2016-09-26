@@ -159,6 +159,7 @@ function search(queryData, showBig, back) {
                     colData.append(nameBig);
 
                     var classification = $("<div/>");
+                    var topDiv = $("<div/>");
                     classification.addClass("classification");
                     var labelsBig = $("</p>");
                     if (data[i]['info']['labelGlutenFree'] === 'yes') {
@@ -183,7 +184,8 @@ function search(queryData, showBig, back) {
                         labelsBig.addClass("classification-label");
                     }
 
-                    classification.append(labelsBig);
+                    topDiv.append(labelsBig);
+                    classification.append(topDiv);
                     var explanation = $("<p/>");
                     var confidence = $("<p/>");
                     var explanation_large = $("<p/>");
