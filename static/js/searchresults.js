@@ -89,7 +89,7 @@ function search(queryData, showBig, back) {
                         labels.prepend(iconGlutenFree);
                         labels.addClass("gluten-free");
                         col.addClass("gluten-free ");
-                        labels.addClass("classification-label");
+                        labels.addClass("classification-label big");
                     }
 
                     if (data[i]['info']['ingredientsWheat'] === 'yes') {
@@ -100,7 +100,7 @@ function search(queryData, showBig, back) {
                         labels.prepend(iconWheat);
                         labels.addClass("wheat");
                         col.addClass("wheat");
-                        labels.addClass("classification-label");
+                        labels.addClass("classification-label big");
                     }
 
                     if (!oneLabel) {
@@ -173,7 +173,7 @@ function search(queryData, showBig, back) {
                         labelsBig.addClass("gluten-free");
                         classification.addClass("gluten-free");
                         col.addClass("gluten-free");
-                        labelsBig.addClass("classification-label");
+                        labelsBig.addClass("classification-label big");
                     }
 
                     if (data[i]['info']['ingredientsWheat'] === 'yes') {
@@ -185,7 +185,7 @@ function search(queryData, showBig, back) {
                         labelsBig.addClass("wheat");
                         classification.addClass("wheat");
                         col.addClass("wheat");
-                        labelsBig.addClass("classification-label");
+                        labelsBig.addClass("classification-label big");
                     }
 
                     topDiv.append(labelsBig);
