@@ -186,6 +186,10 @@ $input-height: 50px;
         padding-left: 10px;
         padding-right: 10px;
         border-radius: 3px;
+        display: flex;
+        align-content: center;
+        align-items: center;
+        flex-direction: column;
     }
 }
 
