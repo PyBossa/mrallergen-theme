@@ -184,6 +184,8 @@ if ((window.location['pathname'] === '/') || ((window.location['pathname'] === '
     
         // Create slides
         $("#loading").remove();
+        $(".swiper-button-next").show();
+        $(".swiper-button-prev").show();
         var swiper = new Swiper('.swiper-container', { 
             loop: true,
             nextButton: '.swiper-button-next',
