@@ -101,7 +101,13 @@ $input-height: 50px;
     text-transform: uppercase;
     font-weight: 600;
     margin-top: 10px;
+
 }
+
+.classification-label.big {
+        font-size: 20px;
+    }
+
 
 .gluten-free {
     color: #94CA55;
@@ -183,8 +189,8 @@ $input-height: 50px;
     .classification {
         border: 2px solid;
         padding-top: 5px;
-        padding-left: 10px;
-        padding-right: 10px;
+        //padding-left: 10px;
+        //padding-right: 10px;
         border-radius: 3px;
         display: flex;
         align-content: center;
@@ -192,6 +198,8 @@ $input-height: 50px;
         flex-direction: column;
 
         .bottom {
+            border-top: 2px solid;
+            margin-top: 10px;
             width: 100%;
             display: flex;
             align-content: center;
@@ -201,11 +209,12 @@ $input-height: 50px;
         .onefold {
             flex-grow: 1;
             text-transform: uppercase;
-            align-self: flex-start;
+            //align-self: flex-start;
             display: flex;
             align-content: center;
             align-items: center;
             flex-direction: column;
+            justify-content: space-around;
 
             .big {
                 font-size: 54px;
@@ -215,9 +224,27 @@ $input-height: 50px;
 
         .twofolds {
             flex-grow: 2;
+            border-left: 2px solid;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
 
             .legend {
                 display: flex;
+                width: 100%;
+                justify-content: space-between;
+                border-top: 2px solid;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            .colors {
+                align-items: center;
+                justify-content: space-around;
+                display: flex;
+                width: 100%;
             }
 
             .column {
@@ -229,17 +256,37 @@ $input-height: 50px;
 
             .low  {
                 stroke: red;
+                fill: white;
+            }
+
+            .low.chosen{
                 fill: red;
             }
 
             .mid {
                 stroke: yellow;
+                fill: white;
+            }
+
+            .mid.chosen{
                 fill: yellow;
             }
 
             .high {
-                stroke: #94CA55
-                fill: #94CA55
+                stroke: #94CA55;
+                fill: white;
+            }
+
+            .high.chosen{
+                fill: #94CA55;
+            }
+
+            .small {
+                font-size: 12px;
+            }
+
+            .number {
+                margin-top: -14px;
             }
         }
     }

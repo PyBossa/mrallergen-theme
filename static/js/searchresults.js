@@ -85,22 +85,22 @@ function search(queryData, showBig, back) {
                         oneLabel = true;
                         var iconGlutenFree = $("<img>");
                         iconGlutenFree.attr("src", "/static/img/green-gluten.svg");
-                        labels.text(" Sin gluten");
+                        labels.text(" sin gluten");
                         labels.prepend(iconGlutenFree);
                         labels.addClass("gluten-free");
                         col.addClass("gluten-free ");
-                        labels.addClass("classification-label");
+                        labels.addClass("classification-label big");
                     }
 
                     if (data[i]['info']['ingredientsWheat'] === 'yes') {
                         oneLabel = true;
                         var iconWheat = $("<img>");
                         iconWheat.attr("src", "/static/img/red-gluten.svg");
-                        labels.text(" Trigo o trazas");
+                        labels.text(" con trigo o trazas");
                         labels.prepend(iconWheat);
                         labels.addClass("wheat");
                         col.addClass("wheat");
-                        labels.addClass("classification-label");
+                        labels.addClass("classification-label big");
                     }
 
                     if (!oneLabel) {
@@ -173,7 +173,7 @@ function search(queryData, showBig, back) {
                         labelsBig.addClass("gluten-free");
                         classification.addClass("gluten-free");
                         col.addClass("gluten-free");
-                        labelsBig.addClass("classification-label");
+                        labelsBig.addClass("classification-label big");
                     }
 
                     if (data[i]['info']['ingredientsWheat'] === 'yes') {
@@ -185,7 +185,7 @@ function search(queryData, showBig, back) {
                         labelsBig.addClass("wheat");
                         classification.addClass("wheat");
                         col.addClass("wheat");
-                        labelsBig.addClass("classification-label");
+                        labelsBig.addClass("classification-label big");
                     }
 
                     topDiv.append(labelsBig);
@@ -227,35 +227,58 @@ function search(queryData, showBig, back) {
 
                     var text = "Clasificado por"
 
-                    leftDiv.html("<p>Clasificado por</p><p class='big'>" + n_people + "</p><p>usuarios</p>");
-                    rightDiv.html("<p>Producto clasificado</p><p style='text-transform: uppercase'>" + txtClassification + " por el</p><p>" + pct + "% " + txt_summary + "</p><p>Nivel de confianza</div>");
+                    leftDiv.html("<p>Clasificado por</p><p class='big'>" + n_people + "</p><p>personas</p>");
+                    rightDiv.html("<p>Etiquetado " + txtClassification + "</p><p> por el " + pct + "%</p><p>" + txt_summary + "</p></div>");
 
                     var legend =$("<div/>");
+                    legend.html("<div><p>Nivel de confianza</p></div>");
+                    var colors =$("<div/>");
                     var low =$("<div/>");
                     var mid =$("<div/>");
                     var high=$("<div/>");
                     low.addClass("column");
                     mid.addClass("column");
                     high.addClass("column");
-                    legend.append(low);
-                    legend.append(mid);
-                    legend.append(high);
+                    colors.append(low);
+                    colors.append(mid);
+                    colors.append(high);
+                    colors.addClass("colors");
                     legend.addClass("legend");
+                    legend.append(colors);
 
 
-                    low.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="low" x="0" y="0" width="30" height="30"/></svg><p><30</p>');
+                    if (n_people < 30) {
+                    low.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="low chosen" x="0" y="0" width="30" height="30"/></svg><p class="small">BAJO</p><p class="small number"><30</p>');
+                    }
+                    else {
+                    low.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="low" x="0" y="0" width="30" height="30"/></svg><p class="small">BAJO</p><p class="small number"><30</p>');
+                    }
   
+                    if (n_people > 30 && n_people < 70) {
+                    mid.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="mid chosen" x="0" y="0" width="30" height="30"/></svg><p class="small">MEDIO</p><p class="small number"><31 - 70></p>');
+                    }
+                    else {
+                    mid.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="mid" x="0" y="0" width="30" height="30"/></svg><p class="small">MEDIO</p><p class="small number"><31 - 70></p>');
+                    }
 
-                    mid.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="mid" x="0" y="0" width="30" height="30"/></svg><p><31 - 70></p>');
+                    if (n_people > 71) {
+                    high.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="high chosen" x="0" y="0" width="30" height="30"/></svg><p class="small">ALTO</p><p class="small number">>71</p>');
+                    }
+                    else {
+                    high.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="high" x="0" y="0" width="30" height="30"/></svg><p class="small">ALTO</p><p class="small number">>71</p>');
+                    }
 
-                    high.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="high" x="0" y="0" width="30" height="30"/></svg><p>71</p>');
+
+                    // classification.append(explanation);
+                    // classification.append(confidence);
+                    // classification.append(explanation_large);
+                    //
+
+                    if (n_people > 71) {
+                        $(".high").addClass("chosen");
+                    }
 
                     rightDiv.append(legend);
-
-                    classification.append(explanation);
-                    classification.append(confidence);
-                    classification.append(explanation_large);
-
                     colData.append(classification);
 
                     var link = $("<a/>");
