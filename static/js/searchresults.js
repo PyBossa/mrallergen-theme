@@ -247,12 +247,12 @@ function search(queryData, showBig, back) {
                     legend.append(colors);
 
 
-                    low.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="low" x="0" y="0" width="30" height="30"/></svg><p class="small"><30</p>');
+                    low.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="low" x="0" y="0" width="30" height="30"/></svg><p class="small">BAJO</p><p class="small"><30</p>');
   
 
-                    mid.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="mid" x="0" y="0" width="30" height="30"/></svg><p class="small"><31 - 70></p>');
+                    mid.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="mid" x="0" y="0" width="30" height="30"/></svg><p class="small">MEDIO</p><p class="small"><31 - 70></p>');
 
-                    high.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="high" x="0" y="0" width="30" height="30"/></svg><p class="small">71</p>');
+                    high.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="high" x="0" y="0" width="30" height="30"/></svg><p class="small">ALTO</p><p class="small">>71</p>');
 
                     rightDiv.append(legend);
 
