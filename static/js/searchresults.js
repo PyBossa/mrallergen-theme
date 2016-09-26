@@ -234,10 +234,14 @@ function search(queryData, showBig, back) {
                     var low =$("<div/>");
                     var mid =$("<div/>");
                     var high=$("<div/>");
+                    low.addClas("column");
+                    mid.addClas("column");
+                    high.addClas("column");
                     legend.append(low);
                     legend.append(mid);
                     legend.append(high);
                     legend.addClass("legend");
+
 
                     low.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="30" height="30"/></svg><p><30</p>');
   
