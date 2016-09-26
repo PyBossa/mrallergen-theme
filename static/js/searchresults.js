@@ -239,12 +239,12 @@ function search(queryData, showBig, back) {
                     legend.append(high);
                     legend.addClass("legend");
 
-                    low.html('<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="100" height="100"/></svg><p><30</p>');
+                    low.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="30" height="30"/></svg><p><30</p>');
   
 
-                    mid.html('<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="100" height="100"/></svg><p><31 - 70></p>');
+                    mid.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="30" height="30"/></svg><p><31 - 70></p>');
 
-                    high.html('<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="100" height="100"/></svg><p>71</p>');
+                    high.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="30" height="30"/></svg><p>71</p>');
 
                     rightDiv.append(legend);
 
