@@ -259,6 +259,18 @@ function search(queryData, showBig, back) {
                     // classification.append(explanation);
                     // classification.append(confidence);
                     // classification.append(explanation_large);
+                    //
+                    if (n_people < 30) {
+                        $(".low").addClass("selected");
+                    }
+
+                    if (n_people > 30 && n_people < 70) {
+                        $(".mid").addClass("selected");
+                    }
+
+                    if (n_people > 71) {
+                        $(".high").addClass("selected");
+                    }
 
                     colData.append(classification);
 

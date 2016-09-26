@@ -250,16 +250,28 @@ $input-height: 50px;
 
             .low  {
                 stroke: red;
+                fill: white;
+            }
+
+            .low .selected {
                 fill: red;
             }
 
             .mid {
                 stroke: yellow;
+                fill: white;
+            }
+
+            .mid .selected {
                 fill: yellow;
             }
 
             .high {
                 stroke: #94CA55;
+                fill: white;
+            }
+
+            .high .selected {
                 fill: #94CA55;
             }
 
