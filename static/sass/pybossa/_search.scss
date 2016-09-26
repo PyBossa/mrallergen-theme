@@ -222,8 +222,12 @@ $input-height: 50px;
 
             .legend {
                 display: flex;
-                width: 70%;
+                width: 100%;
                 justify-content: space-between;
+                border-top: 2px solid;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
             }
 
             .column {
