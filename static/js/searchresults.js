@@ -262,15 +262,15 @@ function search(queryData, showBig, back) {
                     //
                     if (n_people < 30) {
                         console.log(n_people);
-                        $(".low").addClass("selected");
+                        $(".low").addClass("chosen");
                     }
 
                     if (n_people > 30 && n_people < 70) {
-                        $(".mid").addClass("selected");
+                        $(".mid").addClass("chosen");
                     }
 
                     if (n_people > 71) {
-                        $(".high").addClass("selected");
+                        $(".high").addClass("chosen");
                     }
 
                     colData.append(classification);
