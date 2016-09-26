@@ -223,20 +223,23 @@ $input-height: 50px;
             .column {
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
+                justify-content: space-between;
                 align-items: center;
             }
 
             .low  {
                 stroke: red;
+                fill: red;
             }
 
             .mid {
                 stroke: yellow;
+                fill: yellow;
             }
 
             .high {
                 stroke: #94CA55
+                fill: #94CA55
             }
         }
     }
