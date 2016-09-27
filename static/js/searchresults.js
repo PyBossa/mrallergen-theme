@@ -228,10 +228,10 @@ function search(queryData, showBig, back) {
                     var text = "Clasificado por"
 
                     leftDiv.html("<p>Clasificado por</p><p class='big'>" + n_people + "</p><p>personas</p>");
-                    rightDiv.html("<p>Etiquetado " + txtClassification + "</p><p> por el " + pct + "%</p><p>" + txt_summary + "</p></div>");
+                    rightDiv.html("<p class='top10'>Etiquetado " + txtClassification + "</p><p> por el " + pct + "%</p><p>" + txt_summary + "</p></div>");
 
                     var legend =$("<div/>");
-                    legend.html("<div><p>Nivel de confianza</p></div>");
+                    legend.html("<div><p class='top10'>Nivel de confianza</p></div>");
                     var colors =$("<div/>");
                     var low =$("<div/>");
                     var mid =$("<div/>");
@@ -285,6 +285,13 @@ function search(queryData, showBig, back) {
                     link.addClass("btn btn-primary");
                     link.attr("href", data[i]['info']['url']);
                     link.text("Ver en Soysuper");
+                    var warning = $("</p>");
+                    warning.txt("Recomendamos leer SIEMPRE de forma exhaustiva los listados de ingredientes impresos en los envases, previamente a la ingesta del producto por si en algun momento la información pudiera quedar desactualizada por un cambio en el proceso de fabricación. En caso de duda, consulte directamente con el fabricante.");
+                    warning.addClass("warning");
+                    var warningLabel = $("</span>");
+                    warningLabel.addClass("warningLabel");
+                    warningLabel.text("Nota");
+                    warning.append(warningLabel);
                     var backCol = $("<div/>");
                     backCol.addClass("col-xs-12 col-md-10 col-md-offset-2");
                     var backRow = $("<div/>");
@@ -295,6 +302,7 @@ function search(queryData, showBig, back) {
                     backCol.append(back2);
                     backRow.append(backCol);
                     colData.append(link);
+                    colData.append(warning);
                     colData.append(backRow);
                     row.append(colImg);
                     row.append(colData);
