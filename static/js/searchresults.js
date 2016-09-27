@@ -286,12 +286,8 @@ function search(queryData, showBig, back) {
                     link.attr("href", data[i]['info']['url']);
                     link.text("Ver en Soysuper");
                     var warning = $("</p>");
-                    //warning.text("Recomendamos leer SIEMPRE de forma exhaustiva los listados de ingredientes impresos en los envases, previamente a la ingesta del producto por si en algun momento la información pudiera quedar desactualizada por un cambio en el proceso de fabricación. En caso de duda, consulte directamente con el fabricante.");
+                    warning.html("<span class='warning-label'>NOTA</span> Recomendamos leer SIEMPRE de forma exhaustiva los listados de ingredientes impresos en los envases, previamente a la ingesta del producto por si en algun momento la información pudiera quedar desactualizada por un cambio en el proceso de fabricación. En caso de duda, consulte directamente con el fabricante.");
                     warning.addClass("warning");
-                    var warningLabel = $("</span>");
-                    warningLabel.addClass("warningLabel");
-                    warningLabel.text("Nota");
-                    warning.append(warningLabel);
                     var backCol = $("<div/>");
                     backCol.addClass("col-xs-12 col-md-10 col-md-offset-2");
                     var backRow = $("<div/>");
