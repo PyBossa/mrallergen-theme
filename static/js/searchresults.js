@@ -286,7 +286,7 @@ function search(queryData, showBig, back) {
                     link.attr("href", data[i]['info']['url']);
                     link.text("Ver en Soysuper");
                     var warning = $("</p>");
-                    warning.html("<span class='warning-label'>NOTA:</span> En Sr. Alérgeno te aconsejamos que siempre leas las etiquetas y compruebes los ingredientes de los productos que vas a comprar o consumir, por si la información que mostramos en nuestra plataforma se hubiera quedado desactualizada. Además, te recomendamos consultar directamente con el fabricante si tienes alguna duda sobre el producto. Y, si quieres, aquí puedes contactar con nosotros para avisarnos de los cambios que hayas detectado.");
+                    warning.html("<span class='warning-label'>NOTA:</span> Nosotros te aconsejamos que siempre leas las etiquetas in situ y compruebes los ingredientes de los productos que vas a comprar o consumir, por si la información se hubiera quedado desactualizada. Si tienes alguna duda sobre el producto, lo mejor es consultar directamente con el fabricante. Si además quieres ponerte en contacto con nosotros, puedes hacerlo <a href='mailto:info@scifabric.com'>aquí</a>.");
                     warning.addClass("warning");
                     var backCol = $("<div/>");
                     backCol.addClass("col-xs-12 col-md-10 col-md-offset-2");
