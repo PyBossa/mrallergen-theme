@@ -25,7 +25,7 @@ if ((window.location['pathname'] === '/') || ((window.location['pathname'] === '
         }
         else {
             $(".numbers").hide();
-            $("#searchNavBar").hide();
+            $("#searchingNavBar").hide();
         }
     });
     
