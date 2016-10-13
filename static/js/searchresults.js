@@ -254,18 +254,18 @@ function search(queryData, showBig, back) {
                     low.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="low" x="0" y="0" width="30" height="30"/></svg><p class="small">BAJO</p><p class="small number"><30</p>');
                     }
   
-                    if (n_people > 30 && n_people < 70) {
-                    mid.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="mid chosen" x="0" y="0" width="30" height="30"/></svg><p class="small">MEDIO</p><p class="small number"><31 - 70></p>');
+                    if (n_people >= 30 && n_people <= 70) {
+                    mid.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="mid chosen" x="0" y="0" width="30" height="30"/></svg><p class="small">MEDIO</p><p class="small number">30 - 70</p>');
                     }
                     else {
-                    mid.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="mid" x="0" y="0" width="30" height="30"/></svg><p class="small">MEDIO</p><p class="small number"><31 - 70></p>');
+                    mid.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="mid" x="0" y="0" width="30" height="30"/></svg><p class="small">MEDIO</p><p class="small number">30 - 70</p>');
                     }
 
                     if (n_people > 71) {
-                    high.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="high chosen" x="0" y="0" width="30" height="30"/></svg><p class="small">ALTO</p><p class="small number">>71</p>');
+                    high.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="high chosen" x="0" y="0" width="30" height="30"/></svg><p class="small">ALTO</p><p class="small number">>70</p>');
                     }
                     else {
-                    high.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="high" x="0" y="0" width="30" height="30"/></svg><p class="small">ALTO</p><p class="small number">>71</p>');
+                    high.html('<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><rect class="high" x="0" y="0" width="30" height="30"/></svg><p class="small">ALTO</p><p class="small number">>70</p>');
                     }
 
 
