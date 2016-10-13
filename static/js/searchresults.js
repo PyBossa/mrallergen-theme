@@ -215,7 +215,7 @@ function search(queryData, showBig, back) {
                     if (data[i]['info']['ingredientsWheat'] === 'yes') {
                         var n_people = data[i]['info']['ingredientsWheatSummary']['count'];
                         var n_people_agree = data[i]['info']['ingredientsWheatSummary']['freq'];
-                        var pct = ((n_people_agree * 100)/n_people);
+                        var pct = ((n_people_agree * 100)/n_people).toFixed(2);
                         txt_summary =  "(" + n_people_agree + " de " + n_people + " usuarios)"; 
 
                         txt_confidence = confidenceTxt(n_people);
