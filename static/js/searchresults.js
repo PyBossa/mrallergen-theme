@@ -207,7 +207,7 @@ function search(queryData, showBig, back) {
                     if (data[i]['info']['labelGlutenFree'] === 'yes') {
                         var n_people = data[i]['info']['labelGlutenFreeSummary']['count'];
                         var n_people_agree = data[i]['info']['labelGlutenFreeSummary']['freq'];
-                        var pct = ((n_people_agree * 100)/n_people);
+                        var pct = ((n_people_agree * 100)/n_people).toFixed(2);
                         //txt_summary =  n_people_agree + " de " + n_people + " personas (el " + pct + "%) han identificado el sello sin gluten en el producto.";
                         txt_summary =  "(" + n_people_agree + " de " + n_people + " usuarios)"; 
                         txt_confidence = confidenceTxt(n_people);
