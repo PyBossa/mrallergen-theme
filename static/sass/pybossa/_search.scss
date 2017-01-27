@@ -343,3 +343,18 @@ $input-height: 50px;
     margin-top: 20px;
     font-size: 12px;
 }
+
+.labelIngredients {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+@media(max-width: 414px) {
+ .labelIngredients {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    }
+   
+}
