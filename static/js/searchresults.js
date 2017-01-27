@@ -56,7 +56,7 @@ function search(queryData, showBig, back) {
         var query = queryData.replace(/ /g, '');
     }
     $.ajax({
-        url: "/api/result?info=name::" + query + "&fulltextsearch=1",
+        url: "http://sralergeno.pybossa.com/api/result?info=name::" + query + "&fulltextsearch=1",
     })
     .done(function( data ) {
         var n_products_added = 0;
@@ -91,18 +91,34 @@ function search(queryData, showBig, back) {
                         col.addClass("gluten-free ");
                         labels.addClass("classification-label big");
                     }
+                    else {
 
-                    if (data[i]['info']['ingredientsWheat'] === 'yes') {
-                        oneLabel = true;
-                        var iconWheat = $("<img>");
-                        iconWheat.attr("src", "/static/img/red-gluten.svg");
-                        labels.text(" con trigo o trazas");
-                        labels.prepend(iconWheat);
-                        labels.addClass("wheat");
-                        col.addClass("wheat");
-                        labels.addClass("classification-label big");
+                        if (data[i]['info']['ingredientsWheat'] === 'no' && data[i]['info']['ingredientsWheatQuality'] === 'high') {
+                            oneLabel = true;
+                            var iconGlutenFree = $("<img>");
+                            iconGlutenFree.attr("src", "/static/img/green-gluten.svg");
+                            labels.text(" sin gluten");
+                            labels.prepend(iconGlutenFree);
+                            labels.addClass("gluten-free");
+                            col.addClass("gluten-free ");
+                            labels.addClass("classification-label big");
+
+                        }
+                        if (data[i]['info']['ingredientsWheat'] === 'yes' && data[i]['info']['ingredientsWheatQuality'] === 'high') {
+                            oneLabel = true;
+                            var iconWheat = $("<img>");
+                            iconWheat.attr("src", "/static/img/red-gluten.svg");
+                            labels.text(" con trigo o trazas");
+                            labels.prepend(iconWheat);
+                            labels.addClass("wheat");
+                            col.addClass("wheat");
+                            labels.addClass("classification-label big");
+
+                        }
+
                     }
 
+                    console.log(oneLabel);
                     if (!oneLabel) {
                         labels.html("<br/>");
                     }
@@ -176,6 +192,19 @@ function search(queryData, showBig, back) {
                         labelsBig.addClass("classification-label big");
                     }
 
+                    if (data[i]['info']['ingredientsWheat'] === 'no') {
+                        var iconGlutenFree = $("<img>");
+                        iconGlutenFree.attr("src", "/static/img/green-gluten.svg");
+                        var txtClassification = " Sin gluten"
+                        labelsBig.text(txtClassification);
+                        labelsBig.prepend(iconGlutenFree);
+                        labelsBig.addClass("gluten-free");
+                        classification.addClass("gluten-free");
+                        col.addClass("gluten-free");
+                        labelsBig.addClass("classification-label big");
+                    }
+
+
                     if (data[i]['info']['ingredientsWheat'] === 'yes') {
                         var iconWheat = $("<img>");
                         iconWheat.attr("src", "/static/img/red-gluten.svg");
@@ -211,15 +240,31 @@ function search(queryData, showBig, back) {
                         //txt_summary =  n_people_agree + " de " + n_people + " personas (el " + pct + "%) han identificado el sello sin gluten en el producto.";
                         txt_summary =  "(" + n_people_agree + " de " + n_people + " usuarios)"; 
                         txt_confidence = confidenceTxt(n_people);
+                        var labelIngredients = "<p class='labelIngredients'><span><i class='fa fa-check-square-o'></i> Sello Sin Gluten</span><span><i class='fa fa-square-o'></i> Sin trigo o trazas</span></p>"
                     }
-                    if (data[i]['info']['ingredientsWheat'] === 'yes') {
+                    else {
+                        if (data[i]['info']['ingredientsWheat'] === 'yes' && data[i]['info']['ingredientsWheatQuality'] === 'high') {
                         var n_people = data[i]['info']['ingredientsWheatSummary']['count'];
                         var n_people_agree = data[i]['info']['ingredientsWheatSummary']['freq'];
                         var pct = ((n_people_agree * 100)/n_people).toFixed(2);
                         txt_summary =  "(" + n_people_agree + " de " + n_people + " usuarios)"; 
 
                         txt_confidence = confidenceTxt(n_people);
+                        var labelIngredients = "<p class='labelIngredients'><span><i class='fa fa-square-o'></i> Sello Sin Gluten</span><span><i class='fa fa-check-square-o'></i> Con trigo o trazas</span></p>"
                     }
+                        if (data[i]['info']['ingredientsWheat'] === 'no' && data[i]['info']['ingredientsWheatQuality'] === 'high') {
+                        var n_people = data[i]['info']['ingredientsWheatSummary']['count'];
+                        var n_people_agree = data[i]['info']['ingredientsWheatSummary']['freq'];
+                        var pct = ((n_people_agree * 100)/n_people).toFixed(2);
+                        txt_summary =  "(" + n_people_agree + " de " + n_people + " usuarios)"; 
+
+                        txt_confidence = confidenceTxt(n_people);
+                        var labelIngredients = "<p class='labelIngredients'><span><i class='fa fa-square-o'></i> Sello Sin Gluten</span><span><i class='fa fa-check-square-o'></i> Sin trigo o trazas</span></p>"
+                    }
+
+
+                    }
+
                     var txt = "El producto ha sido clasificado así:";
                     //explanation.text(txt);
                     //confidence.text(txt_confidence);
@@ -228,7 +273,7 @@ function search(queryData, showBig, back) {
                     var text = "Clasificado por"
 
                     leftDiv.html("<p>Clasificado por</p><p class='big'>" + n_people + "</p><p>personas</p>");
-                    rightDiv.html("<p class='top10'>Etiquetado " + txtClassification + "</p><p> por el " + pct + "%</p><p>" + txt_summary + "</p></div>");
+                    rightDiv.html("<p class='top10'>Etiquetado " + txtClassification + "</p><p> por el " + pct + "%</p><p>" + txt_summary + "</p>" + labelIngredients +"</div>");
 
                     var legend =$("<div/>");
                     legend.html("<div><p class='top10'>Nivel de confianza</p></div>");

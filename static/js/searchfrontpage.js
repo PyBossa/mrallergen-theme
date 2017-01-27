@@ -1,6 +1,6 @@
 var search_words = [];
 if ((window.location['pathname'] === '/') || ((window.location['pathname'] === '/results') && (window.location['search'] === ''))) {
-    $.ajax({url:'/api/result?desc=true&limit=100'}).done(function(data){
+    $.ajax({url:'http://sralergeno.pybossa.com/api/result?desc=true&limit=100'}).done(function(data){
         if (data.length) {
                 if (window.matchMedia("(min-width: 768px)").matches) {
                     resultsDesktop(data);
@@ -63,16 +63,31 @@ if ((window.location['pathname'] === '/') || ((window.location['pathname'] === '
                     col.addClass("gluten-free ");
                     labels.addClass("classification-label");
                 }
-    
-                if (data[i]['info']['ingredientsWheat'] === 'yes') {
-                    oneLabel = true;
-                    var iconWheat = $("<img>");
-                    iconWheat.attr("src", "/static/img/red-gluten.svg");
-                    labels.text(" Trigo o trazas");
-                    labels.prepend(iconWheat);
-                    labels.addClass("wheat");
-                    col.addClass("wheat");
-                    labels.addClass("classification-label");
+                else {
+
+                    if (data[i]['info']['ingredientsWheat'] === 'yes' && data[i]['info']['ingredientsWheatQuality'] === 'high') {
+                        oneLabel = true;
+                        var iconWheat = $("<img>");
+                        iconWheat.attr("src", "/static/img/red-gluten.svg");
+                        labels.text(" Trigo o trazas");
+                        labels.prepend(iconWheat);
+                        labels.addClass("wheat");
+                        col.addClass("wheat");
+                        labels.addClass("classification-label");
+                    }
+
+                    if (data[i]['info']['ingredientsWheat'] === 'no' && data[i]['info']['ingredientsWheatQuality'] === 'high') {
+                        oneLabel = true;
+                        var iconWheat = $("<img>");
+                        iconWheat.attr("src", "/static/img/green-gluten.svg");
+                        labels.text(" Sin gluten");
+                        labels.prepend(iconWheat);
+                        labels.addClass("gluten-free");
+                        col.addClass("gluten-free");
+                        labels.addClass("classification-label");
+                    }
+
+
                 }
     
                 if (!oneLabel) {
