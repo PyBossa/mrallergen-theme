@@ -145,7 +145,7 @@ function search(queryData, showBig, back) {
                         fav.removeClass('fa-heart-o')
                         fav.addClass('fa-heart')
                     }
-                    n_favs.css("padding-left", "5px;");
+                    n_favs.css("padding-left", "5px");
                     var name = $("</p>");
                     name.addClass("name");
                     var labels = $("</p>");
