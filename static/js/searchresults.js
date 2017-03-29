@@ -56,7 +56,7 @@ function search(queryData, showBig, back) {
         var query = queryData.replace(/ /g, '');
     }
     $.ajax({
-        url: "http://sralergeno.pybossa.com/api/result?info=name::" + query + "&fulltextsearch=1",
+        url: "http://sralergeno.pybossa.com/api/result?info=name::" + query + "&fulltextsearch=1&related=true",
     })
     .done(function( data ) {
         var n_products_added = 0;
@@ -77,6 +77,71 @@ function search(queryData, showBig, back) {
                     product.addClass("product");
                     var brand = $("</p>");
                     brand.addClass("brand");
+                    var divFavs = $("<div/>");
+                    divFavs.css("font-size", "20px");
+                    var fav = $("<i/>");
+                    fav.addClass("fa fa-heart-o");
+                    fav.attr("id", data[i]['task']['id']);
+                    var favorites = data[i]['task']['fav_user_ids']
+                    if (favorites === null) {
+                        favorites = [];
+                    }
+                    fav.attr("data-fav_user_ids", favorites);
+                    fav.off('click').on('click', function(evt){
+                        evt.stopImmediatePropagation();
+                        var taskID = $(this).attr("id");
+                        var userID = sessionStorage.getItem('current_user');
+                        var favIDs = $(this).attr('data-fav_user_ids').split(",")
+                        console.log(favIDs)
+                        var self = this;
+                        console.log(favIDs.indexOf(userID))
+                        if (favIDs.indexOf(userID) >= 0) {
+                            $.ajax
+                               ({
+                                   type: "DELETE",
+                                   //the url where you want to sent the userName and password to
+                                   url: 'http://sralergeno.pybossa.com/api/favorites/' + taskID,
+                                   //url: 'api/favorites/1',
+                                   dataType: 'json',
+                                   contentType: 'application/json',
+                                   //json object to sent to the authentication url
+                                   success: function(){
+                                       console.log("Removed from favs")
+                                       var idx = favIDs.indexOf(userID)
+                                       favIDs.splice(idx, 1)
+                                       $(self).data('fav_user_ids', favIDs);
+                                       $(self).removeClass('fa-heart')
+                                       $(self).addClass('fa-heart-o')
+                                       $(self).attr("data-fav_user_ids", favIDs)
+                                   }
+                               })
+
+                        }
+                        else {
+                            $.ajax
+                               ({
+                                   type: "POST",
+                                   //the url where you want to sent the userName and password to
+                                   url: 'http://sralergeno.pybossa.com/api/favorites',
+                                   //url: 'api/favorites',
+                                   dataType: 'json',
+                                   contentType: 'application/json',
+                                   //json object to sent to the authentication url
+                                   data: JSON.stringify({task_id: taskID}),
+                                   success: function(){
+                                       console.log("Added to favs")
+                                       $(self).removeClass('fa-heart-o')
+                                       $(self).addClass('fa-heart')
+                                       favIDs.push(userID)
+                                       $(self).attr('data-fav_user_ids', favIDs);
+                                       //$(self).attr("data-fav_user_ids", favIDs)
+                                   }
+                               })
+                        }
+                    });
+                    var n_favs = $("<span/>");
+                    if (data[i]['task']['fav_user_ids'] !== null) n_favs.text(data[i]['task']['fav_user_ids'].length);
+                    n_favs.css("padding-left", "5px;");
                     var name = $("</p>");
                     name.addClass("name");
                     var labels = $("</p>");
@@ -137,6 +202,9 @@ function search(queryData, showBig, back) {
 
                     name.text(data[i]['info']['name']);
                     product.append(divImg);
+                    divFavs.append(fav);
+                    divFavs.append(n_favs);
+                    product.append(divFavs);
                     col.append(product);
                     if (oneLabel) {
                         n_products_added += 1;

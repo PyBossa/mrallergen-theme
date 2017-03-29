@@ -78,9 +78,14 @@
     {% set active_page = active_page | default('index') -%}
     {% set active_project  = active_project | default('none') -%}
     {% include "_navbar.html" %}
+    <script>
     {% if not current_user.is_anonymous() %}
     <!-- checkpoint::logged-in::{{current_user.name}} -->
+        sessionStorage.setItem("current_user", {{current_user.id}});
+    {% else %}
+        sessionStorage.removeItem("current_user");
     {% endif %}
+    </script>
     {% block content %}{% endblock %}
     {% include "_footer.html" %}
     <!-- Le javascript -->
