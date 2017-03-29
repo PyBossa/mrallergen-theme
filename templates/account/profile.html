@@ -49,6 +49,7 @@
 </section>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.3/axios.js"></script>
 <script>
+
 axios.get('/api/favorites')
   .then(function (response) {
     var tasks = response.data
@@ -56,7 +57,12 @@ axios.get('/api/favorites')
           axios.get('/api/result?task_id=' + tasks[i]['id'])
               .then(function(response){
                   var li = document.createElement("li");
-                  li.innerHTML = response.data[0]['info']['name']
+                  var a = document.createElement("a");
+                  var linkText = document.createTextNode(response.data[0]['info']['name']);
+                  a.appendChild(linkText);
+                  a.title = "response.data[0]['info']['name']";
+                  a.href = "/results?name=" + encodeURIComponent(response.data[0]['info']['name']);
+                  li.append = a
                   document.getElementById('favs').append(li)
               })
               .catch(function(error){console.log(error)})
