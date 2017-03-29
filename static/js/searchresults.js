@@ -142,8 +142,8 @@ function search(queryData, showBig, back) {
                     var n_favs = $("<span/>");
                     if (data[i]['task']['fav_user_ids'] !== null) n_favs.text(data[i]['task']['fav_user_ids'].length);
                     if ((data[i]['task']['fav_user_ids'] !== null) && (data[i]['task']['fav_user_ids'].indexOf(sessionStorage.getItem('current_user') >= 0))) {
-                        favs.removeClass('fa-heart-o')
-                        favs.addClass('fa-heart')
+                        fav.removeClass('fa-heart-o')
+                        fav.addClass('fa-heart')
                     }
                     n_favs.css("padding-left", "5px;");
                     var name = $("</p>");
