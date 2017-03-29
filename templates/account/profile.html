@@ -16,6 +16,8 @@
                 </div>
                 {{ helper.render_user_profile(current_user, upload_method, "settings") }} 
                 <div class="centered">
+                <h1>{{_('Tus productos favoritos')}}</h1>
+                <ul id="favs"></ul>
                 <h1>{{_('Tus Medallas')}}</h1>
                 {% if user.score >= 5 %}
                 <img class="medal" style="width: 75px;" src="{{url_for('static', filename='img/medal1.svg')}}">
@@ -45,4 +47,27 @@
             </div>
     </div>
 </section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.3/axios.js"></script>
+<script>
+
+axios.get('/api/favorites')
+  .then(function (response) {
+    var tasks = response.data
+      for(i=0; i<tasks.length; i++) {
+          axios.get('/api/result?task_id=' + tasks[i]['id'])
+              .then(function(response){
+                  var li = document.createElement("li");
+                  var a = document.createElement("a");
+                  a.innerHTML = response.data[0]['info']['name'];
+                  a.setAttribute("href", "/results?name=" + encodeURIComponent(response.data[0]['info']['name']));
+                  li.append(a)
+                  document.getElementById('favs').append(li)
+              })
+              .catch(function(error){console.log(error)})
+      }
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+</script>
 {% endblock %}
