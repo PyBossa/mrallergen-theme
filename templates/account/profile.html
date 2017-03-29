@@ -59,7 +59,7 @@ axios.get('/api/favorites')
                   var li = document.createElement("li");
                   var a = document.createElement("a");
                   a.innerHTML = response.data[0]['info']['name'];
-                  a.setAttribute("href", "/results?name=" + encodeURIComponent(response.data[0]['info']['name']);
+                  a.setAttribute("href", "/results?name=" + encodeURIComponent(response.data[0]['info']['name']));
                   li.append = a
                   document.getElementById('favs').append(li)
               })
