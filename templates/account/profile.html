@@ -47,9 +47,14 @@
             </div>
     </div>
 </section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.3/axios.js"></script>
 <script>
-    $.get('/api/favorites', function(data){
-        console.log(data);
-    })
+axios.get('/api/favorites')
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
 </script>
 {% endblock %}
