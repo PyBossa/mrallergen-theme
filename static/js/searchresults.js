@@ -141,7 +141,8 @@ function search(queryData, showBig, back) {
                     });
                     var n_favs = $("<span/>");
                     if (data[i]['task']['fav_user_ids'] !== null) n_favs.text(data[i]['task']['fav_user_ids'].length);
-                    if ((data[i]['task']['fav_user_ids'] !== null) && (data[i]['task']['fav_user_ids'].indexOf(sessionStorage.getItem('current_user') >= 0))) {
+                    console.log((data[i]['task']['fav_user_ids'] )
+                    if ((data[i]['task']['fav_user_ids'] !== null) && (data[i]['task']['fav_user_ids'].indexOf(sessionStorage.getItem('current_user') !== -1))) {
                         fav.removeClass('fa-heart-o')
                         fav.addClass('fa-heart')
                     }
