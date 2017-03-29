@@ -16,6 +16,8 @@
                 </div>
                 {{ helper.render_user_profile(current_user, upload_method, "settings") }} 
                 <div class="centered">
+                <h1>{{_('Tus productos favoritos')}}</h1>
+                <div id="favs"></div>
                 <h1>{{_('Tus Medallas')}}</h1>
                 {% if user.score >= 5 %}
                 <img class="medal" style="width: 75px;" src="{{url_for('static', filename='img/medal1.svg')}}">
@@ -45,4 +47,9 @@
             </div>
     </div>
 </section>
+<script>
+    $.get('/api/favorites', function(data){
+        console.log(data);
+    })
+</script>
 {% endblock %}
