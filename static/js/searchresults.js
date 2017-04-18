@@ -56,7 +56,7 @@ function search(queryData, showBig, back) {
         var query = queryData.replace(/ /g, '');
     }
     $.ajax({
-        url: "http://sralergeno.pybossa.com/api/result?info=name::" + query + "&fulltextsearch=1&related=true",
+        url: "//sralergeno.pybossa.com/api/result?info=name::" + query + "&fulltextsearch=1&related=true",
     })
     .done(function( data ) {
         var n_products_added = 0;
@@ -100,7 +100,7 @@ function search(queryData, showBig, back) {
                                ({
                                    type: "DELETE",
                                    //the url where you want to sent the userName and password to
-                                   url: 'http://sralergeno.pybossa.com/api/favorites/' + taskID,
+                                   url: '//sralergeno.pybossa.com/api/favorites/' + taskID,
                                    //url: 'api/favorites/1',
                                    dataType: 'json',
                                    contentType: 'application/json',
@@ -122,7 +122,7 @@ function search(queryData, showBig, back) {
                                ({
                                    type: "POST",
                                    //the url where you want to sent the userName and password to
-                                   url: 'http://sralergeno.pybossa.com/api/favorites',
+                                   url: '//sralergeno.pybossa.com/api/favorites',
                                    //url: 'api/favorites',
                                    dataType: 'json',
                                    contentType: 'application/json',
