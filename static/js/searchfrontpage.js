@@ -1,6 +1,6 @@
 var search_words = [];
 if ((window.location['pathname'] === '/') || ((window.location['pathname'] === '/results') && (window.location['search'] === ''))) {
-    $.ajax({url:'http://sralergeno.pybossa.com/api/result?desc=true&limit=100'}).done(function(data){
+    $.ajax({url:'//sralergeno.pybossa.com/api/result?desc=true&limit=100'}).done(function(data){
         if (data.length) {
                 if (window.matchMedia("(min-width: 768px)").matches) {
                     resultsDesktop(data);
@@ -10,9 +10,8 @@ if ((window.location['pathname'] === '/') || ((window.location['pathname'] === '
                     else {
                         updatePlaceholder("input");
                     }
-                } 
-                
-                else { 
+                }
+                else {
                     resultsMobile(data);
                     if (window.location['pathname'] === '/') {
                         updatePlaceholder("#homesearch");
@@ -28,8 +27,8 @@ if ((window.location['pathname'] === '/') || ((window.location['pathname'] === '
             $("#searchingNavBar").hide();
         }
     });
-    
-    
+
+
     function resultsDesktop(data) {
         $(".swiper-container").remove();
         var container = $("<div/>");
