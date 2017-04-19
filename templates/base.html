@@ -15,6 +15,11 @@
         OneSignal.push(["init", {
           appId: "a2c907ed-5c44-4904-9da5-f359b650378c",
           autoRegister: false,
+          welcomeNotification: {
+                  "title": "Gracias por suscribirte",
+                  "message": "A partir de ahora sabrás cuando se ha clasificado un producto",
+                  // "url": "" /* Leave commented for the notification to not open a window on Chrome and Firefox (on Safari, it opens to your webpage) */
+              },
           httpPermissionRequest: {
                  enable: true
                },
@@ -23,11 +28,6 @@
             size: 'medium', /* One of 'small', 'medium', or 'large' */
             theme: 'default', /* One of 'default' (red-white) or 'inverse" (white-red) */
             position: 'bottom-right', /* Either 'bottom-left' or 'bottom-right' */
-            welcomeNotification: {
-                    "title": "Gracias por suscribirte",
-                    "message": "A partir de ahora sabrás cuando se ha clasificado un producto",
-                    // "url": "" /* Leave commented for the notification to not open a window on Chrome and Firefox (on Safari, it opens to your webpage) */
-                },
             prenotify: true, /* Show an icon with 1 unread message for first-time site visitors */
             showCredit: false, /* Hide the OneSignal logo */
             text: {
