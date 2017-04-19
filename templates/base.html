@@ -20,6 +20,42 @@
                },
           notifyButton: {
             enable: true /* Set to false to hide */
+            size: 'medium', /* One of 'small', 'medium', or 'large' */
+            theme: 'default', /* One of 'default' (red-white) or 'inverse" (white-red) */
+            position: 'bottom-right', /* Either 'bottom-left' or 'bottom-right' */
+            offset: {
+                bottom: '0px',
+                left: '0px', /* Only applied if bottom-left */
+                right: '0px' /* Only applied if bottom-right */
+            },
+            prenotify: true, /* Show an icon with 1 unread message for first-time site visitors */
+            showCredit: false, /* Hide the OneSignal logo */
+            text: {
+                'tip.state.unsubscribed': 'Notifícame cuando hay productos clasificados',
+                'tip.state.subscribed': "Estás suscrito",
+                'tip.state.blocked': "Has bloqueado las notificaciones",
+                'message.prenotify': 'Haz click para suscribirte a las notificaciones',
+                'message.action.subscribed': "¡Gracias por suscribirte!",
+                'message.action.resubscribed': "Estás suscrito a las notificaciones",
+                'message.action.unsubscribed': "¡Adiós! Ya no recibirás más notificaciones",
+                'dialog.main.title': 'Gestiona las notificaciones',
+                'dialog.main.button.subscribe': 'Suscríbete',
+                'dialog.main.button.unsubscribe': 'Quitar',
+                'dialog.blocked.title': 'Desbloquear notificaciones',
+                'dialog.blocked.message': "Sigue estas instrucciones para habilitar las notificaciones:"
+            },
+        colors: { // Customize the colors of the main button and dialog popup button
+              'circle.background': '#2E4B63',
+              'circle.foreground': 'white',
+              'badge.background': '#2E4B63',
+              'badge.foreground': 'white',
+              'badge.bordercolor': 'white',
+              'pulse.color': 'white',
+              'dialog.button.background.hovering': '#629BBD',
+              'dialog.button.background.active': '#2E4B63',
+              'dialog.button.background': '#2E4B63',
+              'dialog.button.foreground': 'white'
+            },
           }
         }]);
       </script>
