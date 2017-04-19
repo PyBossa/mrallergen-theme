@@ -7,6 +7,58 @@
     {% else %}
     <title>{{ brand }} &middot; {{ title | safe}} - PyBossa by Scifabric</title>
     {% endif %}
+    <link rel="manifest" href="/manifest.json">
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+      <script>
+        var OneSignal = window.OneSignal || [];
+        OneSignal.push(["init", {
+          appId: "a2c907ed-5c44-4904-9da5-f359b650378c",
+          autoRegister: false,
+          welcomeNotification: {
+                  "title": "Gracias por suscribirte",
+                  "message": "A partir de ahora sabrás cuando se ha clasificado un producto",
+                  // "url": "" /* Leave commented for the notification to not open a window on Chrome and Firefox (on Safari, it opens to your webpage) */
+              },
+          httpPermissionRequest: {
+                 enable: true
+               },
+          notifyButton: {
+            enable: true, /* Set to false to hide */
+            size: 'medium', /* One of 'small', 'medium', or 'large' */
+            theme: 'default', /* One of 'default' (red-white) or 'inverse" (white-red) */
+            position: 'bottom-right', /* Either 'bottom-left' or 'bottom-right' */
+            prenotify: true, /* Show an icon with 1 unread message for first-time site visitors */
+            showCredit: false, /* Hide the OneSignal logo */
+            text: {
+                'tip.state.unsubscribed': 'Notifícame cuando hay productos clasificados',
+                'tip.state.subscribed': "Estás suscrito",
+                'tip.state.blocked': "Has bloqueado las notificaciones",
+                'message.prenotify': 'Haz click para suscribirte a las notificaciones',
+                'message.action.subscribed': "¡Gracias por suscribirte!",
+                'message.action.resubscribed': "Estás suscrito a las notificaciones",
+                'message.action.unsubscribed': "¡Adiós! Ya no recibirás más notificaciones",
+                'dialog.main.title': 'Gestiona las notificaciones',
+                'dialog.main.button.subscribe': 'Suscríbete',
+                'dialog.main.button.unsubscribe': 'Quitar',
+                'dialog.blocked.title': 'Desbloquear notificaciones',
+                'dialog.blocked.message': "Sigue estas instrucciones para habilitar las notificaciones:"
+            },
+        colors: { // Customize the colors of the main button and dialog popup button
+              'circle.background': '#2E4B63',
+              'circle.foreground': 'white',
+              'badge.background': '#2E4B63',
+              'badge.foreground': 'white',
+              'badge.bordercolor': 'white',
+              'pulse.color': 'white',
+              'dialog.button.background.hovering': '#629BBD',
+              'dialog.button.background.active': '#2E4B63',
+              'dialog.button.background': '#2E4B63',
+              'dialog.button.foreground': 'white'
+            },
+          }
+        }]);
+      </script>
+
     <!-- No zoom double tap -->
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="Sr. Alérgeno es la plataforma que hacía falta para clasificar productos que contienen alérgenos en sus ingredientes. Y toda la información que se recopila se comparte abierta, libre y gratuitamente. ¿Nos ayudas?">
@@ -60,7 +112,7 @@
     <link rel="icon" type="image/png" href="/static/img/favicon/android-chrome-192x192.png" sizes="192x192">
     <link rel="icon" type="image/png" href="/static/img/favicon/favicon-96x96.png" sizes="96x96">
     <link rel="icon" type="image/png" href="/static/img/favicon/favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="/static/img/favicon/manifest.json">
+    <!-- <link rel="manifest" href="/static/img/favicon/manifest.json">->
     <link rel="mask-icon" href="/static/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <link rel="shortcut icon" href="/static/img/favicon/favicon.ico">
     <meta name="msapplication-TileColor" content="#00aba9">
@@ -72,6 +124,7 @@
     {% include '_ga.html' ignore missing %}
     <!-- Google Custom Search -->
     {% include '_gcs.html' ignore missing %}
+    <!-- OneSignal push notifications -->
   </head>
 
   <body {% if body_class %}class="{{body_class}}"{%endif%}>
