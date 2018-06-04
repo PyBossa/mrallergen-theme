@@ -47,7 +47,6 @@
             </section>
             {% endif %}
 
-            {% if current_user.admin %}
             <section class="account update external-services">
                 <h2>External Services</h2>
                 <form method="post" action="{{ url_for('account.update_profile', name=current_user.name) }}">
@@ -68,12 +67,38 @@
                     </div>
                 </form>
             </section>
-            {% endif %}
+            <section class="account delete">
+                <h2>{{_('Exportar tus datos')}}</h2>
+                <p>
+                    {{ _('Te enviaremos un email cuando los datos estén disponibles para descargar. Tendrás acceso a tus datos personales y las contribuciones que has enviado. ') }}
+                </p>
+                <div class="form-group">
+                    <a class="btn btn-primary" style="margin-top:10px;" href="{{url_for('account.start_export', name=current_user.name)}}">{{_('Exportar tus datos')}}</a>
+                </div>
+            </section>
+            <section class="account delete">
+                <h2>{{_('Borrar tu cuenta')}}</h2>
+                <div class="alert alert-danger">
+                    <strong>{{ _('PELIGRO') }}</strong> {{ _('Si borras tu cuenta, todos tus datos serán eliminados del servidor. Tus contribuciones se harán anónimas. No se puede deshacer el borrado.') }}
+                </div>
+                <div class="form-group">
+                    <input onkeyup="checkEmail(this.value)" class="form-control" id="delete" placeholder="Escribe tu email para confirmar que quieres borrarte.">
+                    <a id="deleteTrue"  class="btn btn-primary" style="margin-top:10px; display:none;" href="{{url_for('account.delete', name=current_user.name)}}">{{_('Borrar')}}</a>
+                </div>
+            </section>
         </div>
     </div>
 </section>
 <script>
     var pybossaAvatarAspectRatio = 1 / 1;
+function checkEmail (txt) {
+    if (txt === '{{ current_user.email_addr}}') {
+        document.getElementById('deleteTrue').style.display='block';
+    } else {
+        document.getElementById('deleteTrue').style.display='none';
+    }
+}
+
 </script>
 <script src="{{url_for('static', filename='js/vendor/cropper.min.js')}}"></script>
 <link rel="stylesheet" href="{{url_for('static', filename='css/cropper.min.css')}}" type="text/css" />
