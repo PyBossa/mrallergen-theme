@@ -6,7 +6,7 @@
 <section class="home featured">
     <div class="jumbotron">
         <div class="container text-center firstfold">
-            {% if categories_projects['featured'] | count > 0 %}
+            {% if featured | count > 0 %}
             {% set featured_project = categories_projects['featured'] | random %}
             <div class="col-xs-12 col-sm-6 col-sm-push-6">
                 <img class="sr-alergeno-home" src="{{url_for('static', filename='img/trigo-si-o-no.svg')}}">
